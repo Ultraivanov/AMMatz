@@ -69,7 +69,7 @@ export const landingContent = {
     eyebrow: "AM-ready metal powders",
     title: "Metal powder production for advanced additive manufacturing.",
     summary:
-      "AMMatz develops tailored metal powders, plasma atomization equipment, and recycling routes for high-value metal feedstock.",
+      "Israel's first specialized producer of advanced metal powders for additive manufacturing, developing tailored powders, plasma atomization equipment, and recycling routes for high-value metal feedstock.",
     proofPoints: [
       "Tailored powder characteristics for AM processes",
       "Proprietary plasma atomization platform developed in Israel",
