@@ -18,10 +18,10 @@ Last updated: 2026-08-15
 
 | Field | Value |
 |---|---|
-| Block ID | M-01 |
-| Title | Frontend Scaffold |
+| Block ID | M-02 |
+| Title | Landing Page Build |
 | Status | in-progress |
-| File | `.codex/blocks/M-01.md` |
+| File | `.codex/blocks/M-02.md` |
 
 ## Phase Map
 
@@ -38,8 +38,8 @@ Last updated: 2026-08-15
 
 | ID | Block | Status |
 |---|---|---|
-| M-01 | Frontend Scaffold | in-progress |
-| M-02 | Landing Page Build | pending |
+| M-01 | Frontend Scaffold | done |
+| M-02 | Landing Page Build | in-progress |
 | M-03 | Content and Asset Optimization | pending |
 
 ### Phase 2 - Production Readiness

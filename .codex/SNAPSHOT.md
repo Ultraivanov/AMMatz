@@ -5,11 +5,12 @@ Last updated: 2026-08-15
 ## Current State
 
 - GitHub repository: `https://github.com/Ultraivanov/AMMatz`
-- Local branch: `main`, tracking `origin/main`
-- Remote repository currently contains only `LICENSE`.
+- Current implementation branch: `codex/m-01-scaffold`
+- `M-01 Frontend Scaffold` is complete locally on the implementation branch.
 - Current source asset: `/Users/dmitryivanov/Downloads/AMMatz_Blueprint_Landing (1).html`
 - Figma import: `https://www.figma.com/design/ZZvNPS8tvJ1xGEldRlipCk?node-id=1-2`
 - Working HTML capture copy: `AMMatz_Blueprint_Landing_figma_capture.html`
+- Local dev server: `http://localhost:3000`
 
 ## Product Direction
 
@@ -18,4 +19,10 @@ AMMatz is a B2B industrial website for advanced metal powders, additive manufact
 ## Workflow
 
 Use `codex-code-starter` Phase -> Block -> Task -> Session model. Work should proceed through approved blocks and atomic tasks.
+
+## Latest Verification
+
+- `npm run lint` passes.
+- `npm run build` passes.
+- Local smoke check confirms AMMatz shell content and contact mailto render.
 
