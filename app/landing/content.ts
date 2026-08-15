@@ -19,7 +19,7 @@ export const brand = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Powder Programs", href: "#powder-programs" },
+  { label: "Metal Powders for AM", href: "#powder-programs" },
   { label: "Production Platform", href: "#production-platform" },
   { label: "Recycling Route", href: "#recycling-route" },
   { label: "RFQ", href: "#rfq", isPrimary: true },
@@ -69,7 +69,7 @@ export const landingContent = {
     eyebrow: "AM-ready metal powders",
     title: "Advanced Metal Powder Production.",
     summary:
-      "Israel's first specialized producer focused on powder programs for additive manufacturing, connecting material development, plasma production, and high-value metal recovery.",
+      "Israel's first specialized producer focused on powders for additive manufacturing, connecting material development, plasma production, and high-value metal recycling.",
     proofPoints: [
       "Tailored powder characteristics for AM processes",
       "Proprietary plasma atomization platform developed in Israel",
@@ -106,8 +106,8 @@ export const landingContent = {
         "Wire feedstock acts as a consumable cathode in an argon plasma arc, forming spherical particles directly from localized melting.",
     },
     {
-      id: "metal-recovery",
-      title: "Metal Recovery",
+      id: "metal-recycling",
+      title: "Metal Recycling",
       statement:
         "High-value feedstock can be returned to the production cycle as AM-ready powder.",
       detail:
@@ -116,9 +116,9 @@ export const landingContent = {
   ],
   powderPrograms: {
     id: "powder-programs",
-    title: "Powder Programs",
+    title: "Metal Powders for AM",
     intro:
-      "AMMatz structures powder work around material families, target process windows, and particle architecture rather than a static catalog.",
+      "AMMatz develops custom and application-specific powders around material families, target process windows, and particle architecture rather than a static catalog.",
     groups: [
       {
         title: "Refractory metals",
