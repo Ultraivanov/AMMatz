@@ -11,15 +11,6 @@ export type NavItem = {
   isPrimary?: boolean;
 };
 
-export type SpecItem = {
-  label: string;
-  value: string;
-};
-
-export type PowderImage = LandingImage & {
-  title: string;
-};
-
 export const brand = {
   name: "AMMatz Group",
   shortName: "AMMatz",
@@ -28,121 +19,149 @@ export const brand = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Our Powders", href: "#powders" },
-  { label: "Our Technology", href: "#technology" },
-  { label: "Metal Recycling", href: "#recycling" },
-  { label: "Contact Us", href: "#contact", isPrimary: true },
+  { label: "Powder Programs", href: "#powder-programs" },
+  { label: "Production Platform", href: "#production-platform" },
+  { label: "Recycling Route", href: "#recycling-route" },
+  { label: "RFQ", href: "#rfq", isPrimary: true },
 ];
+
+export const powderEvidence = {
+  tungsten: {
+    src: "/assets/powder-tungsten-microscopy.png",
+    alt: "AMMatz-Tungsten microscopy image",
+    width: 534,
+    height: 406,
+  },
+  titanium: {
+    src: "/assets/powder-ti-6al-4v-microscopy.png",
+    alt: "AMMatz-Ti-6Al-4V microscopy image",
+    width: 524,
+    height: 404,
+  },
+  tantalum: {
+    src: "/assets/powder-tantalum-microscopy.png",
+    alt: "AMMatz-Tantalum microscopy image",
+    width: 530,
+    height: 416,
+  },
+  almg6: {
+    src: "/assets/powder-almg6-nanopowder-microscopy.png",
+    alt: "AMMatz-AlMg6 Nanopowder microscopy image",
+    width: 530,
+    height: 404,
+  },
+  coreShellLabels: {
+    src: "/assets/core-shell-original-labels-microscopy.png",
+    alt: "Core-shell powder microscopy image with original labels",
+    width: 616,
+    height: 480,
+  },
+  coreShell: {
+    src: "/assets/core-shell-microscopy.png",
+    alt: "Core-shell powder microscopy image",
+    width: 606,
+    height: 406,
+  },
+} satisfies Record<string, LandingImage>;
 
 export const landingContent = {
   hero: {
-    eyebrow: "Israel's first specialized producer of",
-    title: "Advanced Metal Powders",
-    subtitle: "for additive manufacturing",
+    eyebrow: "AM-ready metal powders",
+    title: "Metal powder production for advanced additive manufacturing.",
+    summary:
+      "AMMatz develops tailored metal powders, plasma atomization equipment, and recycling routes for high-value metal feedstock.",
+    proofPoints: [
+      "Tailored powder characteristics for AM processes",
+      "Proprietary plasma atomization platform developed in Israel",
+      "Recycling route from valuable feedstock to spherical powder",
+    ],
+    systemFacts: [
+      { label: "Core route", value: "Plasma atomization" },
+      { label: "Feedstock", value: "Wire, scrap, reused powder" },
+      { label: "Output", value: "Spherical AM powder" },
+      { label: "Materials", value: "Refractory metals and AM alloys" },
+    ],
     image: {
       src: "/assets/atomization-equipment-blueprint.png",
       alt: "Blueprint drawing of AMMatz atomization equipment",
       width: 1216,
       height: 746,
     } satisfies LandingImage,
-    spec: [
-      { label: "System", value: "Plasma Atomization Unit" },
-      { label: "Model", value: "AMMatz-PA500" },
-      { label: "Scale", value: "1:20" },
-    ] satisfies SpecItem[],
   },
-  why: {
-    id: "why",
-    title: "Why AMMatz",
-    body: "AMMatz team brings more than 10 years of research and hands-on experience in additive manufacturing, developing, testing, and 3D printing advanced metal powders at leading Israeli research centers. This background shaped AMMatz's production approach. The team develops proprietary atomization equipment and continuously refines its process know-how, combining stable production and consistent powder quality with flexibility and close attention to customer needs.",
-    facts: [
-      "10+ years in additive manufacturing research and production",
-      "Proprietary atomization equipment developed in Israel",
-      "Powder quality tuned for customer process requirements",
+  capabilities: [
+    {
+      id: "powder-development",
+      title: "Powder Development",
+      statement:
+        "Powder chemistry, morphology, and particle size are tuned for target AM routes.",
+      detail:
+        "Programs cover refractory metals, titanium alloys, nickel-based superalloys, aluminum alloys, copper alloys, nano powders, LPBF, DED, and core-shell structures.",
+    },
+    {
+      id: "plasma-atomization",
+      title: "Plasma Atomization",
+      statement:
+        "The production route is built around proprietary plasma atomization equipment.",
+      detail:
+        "Wire feedstock acts as a consumable cathode in an argon plasma arc, forming spherical particles directly from localized melting.",
+    },
+    {
+      id: "metal-recovery",
+      title: "Metal Recovery",
+      statement:
+        "High-value feedstock can be returned to the production cycle as AM-ready powder.",
+      detail:
+        "Accepted streams include machining chips, swarf, solid scrap, offcuts, and reused additive-manufacturing powder.",
+    },
+  ],
+  powderPrograms: {
+    id: "powder-programs",
+    title: "Powder Programs",
+    intro:
+      "AMMatz structures powder work around material families, target process windows, and particle architecture rather than a static catalog.",
+    groups: [
+      {
+        title: "Refractory metals",
+        items: ["C-103 (Nb-Hf-Ti)", "Tantalum", "Tungsten", "Niobium"],
+      },
+      {
+        title: "AM alloys",
+        items: [
+          "Ti-6Al-4V",
+          "Nickel-based superalloys",
+          "Aluminum alloys",
+          "Copper alloys",
+        ],
+      },
+      {
+        title: "Particle windows",
+        items: [
+          "20-300 nm nano powders",
+          "20-63 um LPBF",
+          "63-150 um DED and advanced technologies",
+        ],
+      },
+      {
+        title: "Custom structures",
+        items: [
+          "Core-shell powders",
+          "Custom powder development",
+          "Composition and morphology tuning",
+        ],
+      },
+    ],
+    evidence: [
+      { label: "Tungsten / refractory powder", image: powderEvidence.tungsten },
+      { label: "Ti-6Al-4V / AM alloy", image: powderEvidence.titanium },
+      { label: "Core-shell architecture", image: powderEvidence.coreShellLabels },
+      { label: "AlMg6 / nanopowder", image: powderEvidence.almg6 },
     ],
   },
-  powders: {
-    id: "powders",
-    title: "Our Powders",
-    subtitle: "Advanced Powder Solutions for Additive Manufacturing",
-    body: "AMMatz develops and produces metal powders for a wide range of additive manufacturing applications. Powder characteristics, including particle size, morphology, and composition, can be tailored to specific process requirements.",
-    materials: [
-      "C-103 (Nb-Hf-Ti)",
-      "Tantalum",
-      "Tungsten",
-      "Niobium",
-      "Cu alloys",
-      "Al alloys",
-      "Nickel-based superalloy",
-      "Ti-6Al-4V",
-    ],
-    sizes: [
-      { label: "20-300 nm", value: "Nano" },
-      { label: "20-63 um", value: "Laser Powder Bed Fusion (LPBF)" },
-      {
-        label: "63-150 um",
-        value: "Directed Energy Deposition (DED) and other advanced technologies",
-      },
-    ],
-    composition: [
-      {
-        title: "Core-Shell Powders",
-        body: "Two materials in a single particle: a selected core surrounded by a uniform metallic shell.",
-      },
-      {
-        title: "Custom Powders Development",
-        body: "Contact us to discuss process requirements and target material properties.",
-      },
-    ],
-    images: [
-      {
-        title: "Tungsten",
-        src: "/assets/powder-tungsten-microscopy.png",
-        alt: "AMMatz-Tungsten microscopy image",
-        width: 534,
-        height: 406,
-      },
-      {
-        title: "Ti-6Al-4V",
-        src: "/assets/powder-ti-6al-4v-microscopy.png",
-        alt: "AMMatz-Ti-6Al-4V microscopy image",
-        width: 524,
-        height: 404,
-      },
-      {
-        title: "Tantalum",
-        src: "/assets/powder-tantalum-microscopy.png",
-        alt: "AMMatz-Tantalum microscopy image",
-        width: 530,
-        height: 416,
-      },
-      {
-        title: "AlMg6 Nanopowder",
-        src: "/assets/powder-almg6-nanopowder-microscopy.png",
-        alt: "AMMatz-AlMg6 Nanopowder microscopy image",
-        width: 530,
-        height: 404,
-      },
-      {
-        title: "Core-shell structure",
-        src: "/assets/core-shell-original-labels-microscopy.png",
-        alt: "Core-shell powder microscopy image with original labels",
-        width: 616,
-        height: 480,
-      },
-      {
-        title: "Core-shell morphology",
-        src: "/assets/core-shell-microscopy.png",
-        alt: "Core-shell powder microscopy image",
-        width: 606,
-        height: 406,
-      },
-    ] satisfies PowderImage[],
-  },
-  technology: {
-    id: "technology",
-    title: "Our Technology",
-    subtitle: "Proprietary Atomization Equipment Developed in Israel",
+  productionPlatform: {
+    id: "production-platform",
+    title: "Production Platform",
+    intro:
+      "The platform combines proprietary equipment, plasma-torch design, argon atmosphere control, and process know-how for spherical powder production.",
     equipmentImage: {
       src: "/assets/atomization-equipment-photo.png",
       alt: "AMMatz proprietary atomization equipment",
@@ -155,33 +174,45 @@ export const landingContent = {
       width: 634,
       height: 284,
     } satisfies LandingImage,
-    processTitle: "Plasma Atomization Process",
-    body: "Building on established plasma atomization principles, the team has developed its own engineering solutions and process improvements. Plasma atomization is AMMatz's core production technology, complemented by ultrasonic and gas atomization as alternative routes for recycling, special campaigns, and selected materials.",
-    highlights: [
+    process: [
       "Feedstock wire diameter: 1.5-5 mm",
-      "Proprietary plasma-torch design",
       "Wire functions as a consumable cathode",
-      "Plasma arc generated in an argon atmosphere",
+      "Plasma arc generated in argon atmosphere",
       "Localized melting at the wire tip",
       "Direct formation of spherical powder particles",
+      "Classification for target particle-size windows",
+    ],
+    operatingNotes: [
+      { label: "Atmosphere", value: "Argon" },
+      { label: "Torch", value: "Proprietary design" },
+      { label: "Wire diameter", value: "1.5-5 mm" },
     ],
   },
-  recycling: {
-    id: "recycling",
-    title: "Metal Recycling",
-    subtitle: "AMMatz Recycling Platform",
-    body: "AMMatz Group is developing a metal recycling platform to return valuable metals to the production cycle without prior conversion into wire or bar. The process is built around a combination of plasma melting and gas atomization. The resulting spherical powders feature a controlled particle-size distribution and are suitable for additive manufacturing.",
-    feedstock: [
+  recyclingRoute: {
+    id: "recycling-route",
+    title: "Recycling Route",
+    claim: "Return high-value metal feedstock into AM-ready powder.",
+    body:
+      "AMMatz is developing a metal recycling platform based on plasma melting and gas atomization, producing spherical powders with controlled particle-size distribution.",
+    acceptedFeedstock: [
       "Machining chips and swarf",
       "Solid metal scrap and offcuts",
       "Reused additive-manufacturing powder",
-      "Other forms of feedstock",
+      "Other high-performance metal feedstock",
     ],
-    note: "AMMatz Group accepts advanced and high-performance metal materials for recycling. To discuss recycling, contact us at office@ammatz.com.",
+    result: "Controlled particle-size distribution for additive manufacturing.",
   },
-  contact: {
-    id: "contact",
-    title: "Contact Us",
-    body: "Discuss powder development, production campaigns, or recycling opportunities with AMMatz Group.",
+  rfq: {
+    id: "rfq",
+    title: "Start a technical conversation",
+    body:
+      "Send the material target, AM process, particle-size range, approximate volume, and feedstock form if recycling is relevant.",
+    checklist: [
+      "Material or alloy",
+      "Target AM process",
+      "Particle-size range",
+      "Approximate volume",
+      "Feedstock form for recycling projects",
+    ],
   },
 } as const;
