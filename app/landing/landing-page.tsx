@@ -335,6 +335,7 @@ function RfqSection() {
           ))}
         </ul>
         <a
+          aria-label="Email AMMatz powder production RFQ"
           className="mt-8 inline-flex border border-primary px-5 py-4 font-mono text-sm text-primary uppercase transition-colors hover:bg-primary hover:text-primary-foreground"
           href={rfqMailto}
         >
@@ -367,7 +368,11 @@ function Footer() {
           <p className="font-mono text-[11px] text-primary uppercase">
             Technical contact
           </p>
-          <a className="mt-3 block text-foreground hover:text-primary" href={rfqMailto}>
+          <a
+            aria-label="Email AMMatz powder production RFQ"
+            className="mt-3 block text-foreground hover:text-primary"
+            href={rfqMailto}
+          >
             {brand.email}
           </a>
         </div>
