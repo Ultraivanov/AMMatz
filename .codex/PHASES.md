@@ -18,10 +18,10 @@ Last updated: 2026-08-15
 
 | Field | Value |
 |---|---|
-| Block ID | F-01 |
-| Title | Project Foundation |
+| Block ID | F-02 |
+| Title | Product and Design System Baseline |
 | Status | in-progress |
-| File | `.codex/blocks/F-01.md` |
+| File | `.codex/blocks/F-02.md` |
 
 ## Phase Map
 
@@ -30,8 +30,8 @@ Last updated: 2026-08-15
 
 | ID | Block | Status |
 |---|---|---|
-| F-01 | Project Foundation | in-progress |
-| F-02 | Product and Design System Baseline | pending |
+| F-01 | Project Foundation | done |
+| F-02 | Product and Design System Baseline | in-progress |
 
 ### Phase 1 - MVP Site
 > Goal: production-shaped landing page running locally with maintainable code.
@@ -56,4 +56,3 @@ Last updated: 2026-08-15
 | ID | Block | Reason | Unblocked By |
 |---|---|---|---|
 |  |  |  |  |
-
