@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ammatz-blue-950: #031b36;
+  --ammatz-blue-900: #06284f;
+  --ammatz-blue-850: #07315e;
+  --ammatz-blue-800: #08386c;
+  --ammatz-blue-700: #0a4388;
+  --ammatz-orange: #ff6b35;
+  --ammatz-cyan: #7dd3fc;
+  --ammatz-white: #ffffff;
+  --ammatz-text-muted: rgba(255, 255, 255, 0.76);
+  --ammatz-line: rgba(255, 255, 255, 0.32);
+  --ammatz-line-strong: rgba(255, 255, 255, 0.62);
+  --ammatz-grid: rgba(255, 255, 255, 0.055);
+  --ammatz-surface-light: #f8fafc;
+  --ammatz-ink: #020617;
+
+  --background: var(--ammatz-blue-900);
+  --foreground: var(--ammatz-white);
+  --card: var(--ammatz-blue-850);
+  --card-foreground: var(--ammatz-white);
+  --primary: var(--ammatz-orange);
+  --primary-foreground: var(--ammatz-white);
+  --secondary: var(--ammatz-blue-800);
+  --secondary-foreground: var(--ammatz-white);
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: var(--ammatz-text-muted);
+  --border: var(--ammatz-line);
+  --input: var(--ammatz-line);
+  --ring: var(--ammatz-orange);
+  --destructive: #dc2626;
+
+  --page-max: 1440px;
+  --page-pad-desktop: 120px;
+  --page-pad-tablet: 40px;
+  --page-pad-mobile: 16px;
+  --gutter: 24px;
+  --gutter-mobile: 16px;
+  --section-gap: 72px;
+  --section-gap-mobile: 48px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  min-height: 100dvh;
+  background:
+    linear-gradient(var(--ammatz-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ammatz-grid) 1px, transparent 1px),
+    var(--background);
+  background-size: 32px 32px;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
