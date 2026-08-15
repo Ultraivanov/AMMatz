@@ -15,6 +15,10 @@
   --ammatz-grid: rgba(255, 255, 255, 0.055);
   --ammatz-surface-light: #f8fafc;
   --ammatz-ink: #020617;
+  --blueprint-panel: rgba(3, 27, 54, 0.72);
+  --blueprint-panel-strong: rgba(6, 40, 79, 0.92);
+  --blueprint-paper: rgba(255, 255, 255, 0.94);
+  --blueprint-paper-ink: #06284f;
 
   --background: var(--ammatz-blue-900);
   --foreground: var(--ammatz-white);
@@ -105,4 +109,3 @@ a {
     animation-iteration-count: 1 !important;
   }
 }
-
