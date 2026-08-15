@@ -69,7 +69,7 @@ export const landingContent = {
     eyebrow: "AM-ready metal powders",
     title: "Metal powder production for advanced additive manufacturing.",
     summary:
-      "Israel's first specialized producer of advanced metal powders for additive manufacturing, developing tailored powders, plasma atomization equipment, and recycling routes for high-value metal feedstock.",
+      "Israel's first specialized producer in the field, built to connect material development, plasma production, and high-value metal recovery.",
     proofPoints: [
       "Tailored powder characteristics for AM processes",
       "Proprietary plasma atomization platform developed in Israel",
