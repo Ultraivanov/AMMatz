@@ -11,10 +11,10 @@ import {
 import { brand, landingContent, navItems } from "./content";
 
 const rfqMailto = `mailto:${brand.email}?subject=${encodeURIComponent(
-  "AMMatz powder production RFQ",
+    "AMMatz powder production RFQ",
 )}&body=${encodeURIComponent(
   [
-    "Material or alloy:",
+    "Target alloy:",
     "Target AM process:",
     "Particle-size range:",
     "Approximate volume:",
@@ -237,7 +237,7 @@ function ProductionPlatformSection() {
 
   return (
     <SectionShell
-      eyebrow="Equipment and process route"
+      eyebrow="Equipment and production route"
       id={productionPlatform.id}
       intro={productionPlatform.intro}
       title={productionPlatform.title}
@@ -277,7 +277,7 @@ function RecyclingRouteSection() {
 
   return (
     <SectionShell
-      eyebrow="Recovery route"
+      eyebrow="Recycling route"
       id={recyclingRoute.id}
       intro={recyclingRoute.body}
       title={recyclingRoute.title}
@@ -317,7 +317,7 @@ function RfqSection() {
       id={rfq.id}
     >
       <div>
-        <MeasurementLabel>RFQ handoff</MeasurementLabel>
+        <MeasurementLabel>Technical inquiry</MeasurementLabel>
         <h2 className="mt-4 text-4xl leading-tight font-semibold md:text-5xl">
           {rfq.title}
         </h2>
@@ -352,8 +352,8 @@ function Footer() {
       <div>
         <MeasurementLabel>AMMatz Group</MeasurementLabel>
         <p className="mt-3 max-w-xs leading-7">
-          Advanced metal powders, plasma atomization, and recycling routes for
-          additive manufacturing.
+          Advanced metal powders, plasma atomization, and metal powder recycling
+          for additive manufacturing.
         </p>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 md:justify-items-end">

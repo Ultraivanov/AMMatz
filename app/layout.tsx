@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | AMMatz Group",
   },
   description:
-    "Israel's first specialized producer of advanced metal powders for additive manufacturing, with plasma atomization technology and metal recycling routes.",
+    "Israel's first specialized producer of advanced metal powders for additive manufacturing, with plasma atomization technology and metal powder recycling routes.",
   applicationName: "AMMatz Group",
   authors: [{ name: "AMMatz Group" }],
   creator: "AMMatz Group",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AMMatz Group | AM Metal Powder Production",
     description:
-      "Advanced metal powder production, plasma atomization, and recycling routes for additive manufacturing.",
+      "Advanced metal powder production, plasma atomization, and metal powder recycling routes for additive manufacturing.",
     url: "/",
     siteName: "AMMatz Group",
     images: [
