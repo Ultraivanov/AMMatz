@@ -9,19 +9,19 @@ Last updated: 2026-08-15
 
 | Field | Value |
 |---|---|
-| Phase | Phase 0 - Foundation |
-| Goal | Establish workflow, repository baseline, design inputs, and implementation plan |
+| Phase | Phase 1 - MVP Site |
+| Goal | Build a production-shaped landing page running locally with maintainable code |
 | Started | 2026-08-15 |
-| Target | TBD |
+| Target | Complete `M-01` scaffold, then build `M-02` landing page |
 
 ## Active Block
 
 | Field | Value |
 |---|---|
-| Block ID | F-02 |
-| Title | Product and Design System Baseline |
+| Block ID | M-01 |
+| Title | Frontend Scaffold |
 | Status | in-progress |
-| File | `.codex/blocks/F-02.md` |
+| File | `.codex/blocks/M-01.md` |
 
 ## Phase Map
 
@@ -31,14 +31,14 @@ Last updated: 2026-08-15
 | ID | Block | Status |
 |---|---|---|
 | F-01 | Project Foundation | done |
-| F-02 | Product and Design System Baseline | in-progress |
+| F-02 | Product and Design System Baseline | done |
 
 ### Phase 1 - MVP Site
 > Goal: production-shaped landing page running locally with maintainable code.
 
 | ID | Block | Status |
 |---|---|---|
-| M-01 | Frontend Scaffold | pending |
+| M-01 | Frontend Scaffold | in-progress |
 | M-02 | Landing Page Build | pending |
 | M-03 | Content and Asset Optimization | pending |
 
