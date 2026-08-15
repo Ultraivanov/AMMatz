@@ -1,0 +1,83 @@
+[
+  {
+    "id": "atomization_equipment_blueprint",
+    "src": "/assets/atomization-equipment-blueprint.png",
+    "alt": "Blueprint drawing of AMMatz atomization equipment",
+    "mimeType": "image/png",
+    "width": 1216,
+    "height": 746,
+    "bytes": 190410
+  },
+  {
+    "id": "powder_tungsten_microscopy",
+    "src": "/assets/powder-tungsten-microscopy.png",
+    "alt": "AMMatz-Tungsten microscopy image",
+    "mimeType": "image/png",
+    "width": 534,
+    "height": 406,
+    "bytes": 220455
+  },
+  {
+    "id": "powder_ti_6al_4v_microscopy",
+    "src": "/assets/powder-ti-6al-4v-microscopy.png",
+    "alt": "AMMatz-Ti-6Al-4V microscopy image",
+    "mimeType": "image/png",
+    "width": 524,
+    "height": 404,
+    "bytes": 204559
+  },
+  {
+    "id": "powder_tantalum_microscopy",
+    "src": "/assets/powder-tantalum-microscopy.png",
+    "alt": "AMMatz-Tantalum microscopy image",
+    "mimeType": "image/png",
+    "width": 530,
+    "height": 416,
+    "bytes": 212353
+  },
+  {
+    "id": "powder_almg6_nanopowder_microscopy",
+    "src": "/assets/powder-almg6-nanopowder-microscopy.png",
+    "alt": "AMMatz-AlMg6 Nanopowder microscopy image",
+    "mimeType": "image/png",
+    "width": 530,
+    "height": 404,
+    "bytes": 178028
+  },
+  {
+    "id": "core_shell_original_labels_microscopy",
+    "src": "/assets/core-shell-original-labels-microscopy.png",
+    "alt": "Core-shell powder microscopy image with original labels",
+    "mimeType": "image/png",
+    "width": 616,
+    "height": 480,
+    "bytes": 307293
+  },
+  {
+    "id": "core_shell_microscopy",
+    "src": "/assets/core-shell-microscopy.png",
+    "alt": "Core-shell powder microscopy image",
+    "mimeType": "image/png",
+    "width": 606,
+    "height": 406,
+    "bytes": 289297
+  },
+  {
+    "id": "atomization_equipment_photo",
+    "src": "/assets/atomization-equipment-photo.png",
+    "alt": "AMMatz proprietary atomization equipment",
+    "mimeType": "image/png",
+    "width": 1216,
+    "height": 746,
+    "bytes": 1125377
+  },
+  {
+    "id": "argon_plasma_arc",
+    "src": "/assets/argon-plasma-arc.png",
+    "alt": "Real argon plasma arc",
+    "mimeType": "image/png",
+    "width": 634,
+    "height": 284,
+    "bytes": 105480
+  }
+]
