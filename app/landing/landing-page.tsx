@@ -10,6 +10,18 @@ import {
 } from "./blueprint-components";
 import { brand, landingContent, navItems } from "./content";
 
+const rfqMailto = `mailto:${brand.email}?subject=${encodeURIComponent(
+  "AMMatz powder production RFQ",
+)}&body=${encodeURIComponent(
+  [
+    "Material or alloy:",
+    "Target AM process:",
+    "Particle-size range:",
+    "Approximate volume:",
+    "Feedstock form, if recycling is relevant:",
+  ].join("\n"),
+)}`;
+
 function LogoMark() {
   return (
     <svg
@@ -41,9 +53,20 @@ function LogoMark() {
 
 function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="mx-auto min-h-dvh w-full max-w-[var(--page-max)] overflow-x-hidden px-4 py-6 text-foreground sm:px-10 lg:px-[var(--page-pad-desktop)]">
-      {children}
-    </main>
+    <>
+      <a
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:border focus:border-primary focus:bg-background focus:px-4 focus:py-3 focus:text-primary"
+        href="#main-content"
+      >
+        Skip to main content
+      </a>
+      <main
+        className="mx-auto min-h-dvh w-full max-w-[var(--page-max)] overflow-x-hidden px-4 py-6 text-foreground sm:px-10 lg:px-[var(--page-pad-desktop)]"
+        id="main-content"
+      >
+        {children}
+      </main>
+    </>
   );
 }
 
@@ -313,12 +336,43 @@ function RfqSection() {
         </ul>
         <a
           className="mt-8 inline-flex border border-primary px-5 py-4 font-mono text-sm text-primary uppercase transition-colors hover:bg-primary hover:text-primary-foreground"
-          href={`mailto:${brand.email}`}
+          href={rfqMailto}
         >
           {brand.email}
         </a>
       </BlueprintFrame>
     </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="grid gap-8 py-8 text-sm text-muted-foreground md:grid-cols-[4fr_8fr]">
+      <div>
+        <MeasurementLabel>AMMatz Group</MeasurementLabel>
+        <p className="mt-3 max-w-xs leading-7">
+          Advanced metal powders, plasma atomization, and recycling routes for
+          additive manufacturing.
+        </p>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 md:justify-items-end">
+        <nav aria-label="Footer navigation" className="grid gap-3 sm:text-right">
+          {navItems.map((item) => (
+            <a className="hover:text-primary" href={item.href} key={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <div className="sm:text-right">
+          <p className="font-mono text-[11px] text-primary uppercase">
+            Technical contact
+          </p>
+          <a className="mt-3 block text-foreground hover:text-primary" href={rfqMailto}>
+            {brand.email}
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 }
 
@@ -332,6 +386,7 @@ export function LandingPage() {
       <ProductionPlatformSection />
       <RecyclingRouteSection />
       <RfqSection />
+      <Footer />
     </PageShell>
   );
 }
