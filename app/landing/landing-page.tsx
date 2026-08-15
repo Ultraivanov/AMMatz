@@ -41,7 +41,7 @@ function LogoMark() {
 
 function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="mx-auto min-h-dvh w-full max-w-[var(--page-max)] px-4 py-6 text-foreground sm:px-10 lg:px-[var(--page-pad-desktop)]">
+    <main className="mx-auto min-h-dvh w-full max-w-[var(--page-max)] overflow-x-hidden px-4 py-6 text-foreground sm:px-10 lg:px-[var(--page-pad-desktop)]">
       {children}
     </main>
   );
@@ -49,7 +49,7 @@ function PageShell({ children }: { children: React.ReactNode }) {
 
 function Header() {
   return (
-    <header className="grid gap-6 border-b border-border pb-6 md:grid-cols-[4fr_8fr]">
+    <header className="grid min-w-0 gap-6 border-b border-border pb-6 md:grid-cols-[4fr_8fr]">
       <Link className="flex w-fit items-start gap-3" href="/" aria-label="AMMatz home">
         <LogoMark />
         <span className="text-3xl leading-none font-medium">
@@ -63,14 +63,14 @@ function Header() {
       </Link>
       <nav
         aria-label="Primary navigation"
-        className="flex flex-wrap items-center gap-x-7 gap-y-3 text-sm md:justify-end"
+        className="grid w-full max-w-[22rem] min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center gap-2 text-sm sm:flex sm:max-w-none sm:flex-wrap sm:gap-x-7 sm:gap-y-3 md:justify-end"
       >
         {navItems.map((item) => (
           <a
             className={
               item.isPrimary
-                ? "border border-border px-4 py-3 font-mono text-xs uppercase transition-colors hover:border-primary hover:text-primary"
-                : "transition-colors hover:text-primary"
+                ? "min-w-0 border border-border px-3 py-3 text-center font-mono text-xs uppercase transition-colors hover:border-primary hover:text-primary sm:px-4"
+                : "min-w-0 border border-transparent py-2 text-center transition-colors hover:text-primary sm:border-0 sm:py-0 sm:text-left"
             }
             href={item.href}
             key={item.href}
@@ -125,10 +125,10 @@ function HeroSection() {
   const { hero } = landingContent;
 
   return (
-    <section className="grid min-h-[calc(100dvh-118px)] gap-10 py-12 md:grid-cols-[5fr_7fr] md:items-center md:py-18">
-      <div className="flex max-w-2xl flex-col items-start">
+    <section className="grid min-w-0 gap-10 py-12 md:min-h-[calc(100dvh-118px)] md:grid-cols-[5fr_7fr] md:items-center md:py-18">
+      <div className="flex w-full max-w-[22rem] min-w-0 flex-col items-start sm:max-w-2xl">
         <MeasurementLabel>{hero.eyebrow}</MeasurementLabel>
-        <h1 className="mt-4 text-5xl leading-[0.95] font-semibold md:text-7xl">
+        <h1 className="mt-4 max-w-full text-4xl leading-[0.98] font-semibold break-words sm:text-5xl md:text-7xl">
           {hero.title}
         </h1>
         <p className="mt-6 max-w-xl text-xl leading-8 text-muted-foreground">
@@ -140,13 +140,13 @@ function HeroSection() {
               <span className="font-mono text-xs text-primary">
                 P-{String(index + 1).padStart(2, "0")}
               </span>
-              <span className="leading-7">{point}</span>
+              <span className="min-w-0 leading-7">{point}</span>
             </li>
           ))}
         </ol>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid w-full max-w-[22rem] min-w-0 gap-4 sm:max-w-none">
         <EvidencePlate
           className="aspect-[1216/746]"
           image={hero.image}

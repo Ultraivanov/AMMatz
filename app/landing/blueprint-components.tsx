@@ -39,13 +39,13 @@ export function SpecPanel({
     <dl className="grid gap-px border border-border bg-border font-mono text-xs">
       {items.map((item) => (
         <div
-          className="grid grid-cols-[112px_1fr] bg-[var(--blueprint-panel)]"
+          className="grid grid-cols-[96px_minmax(0,1fr)] bg-[var(--blueprint-panel)] sm:grid-cols-[112px_minmax(0,1fr)]"
           key={item.label}
         >
           <dt className="px-3 py-3 text-muted-foreground uppercase">
             {item.label}
           </dt>
-          <dd className="px-3 py-3 uppercase">{item.value}</dd>
+          <dd className="min-w-0 px-3 py-3 uppercase">{item.value}</dd>
         </div>
       ))}
     </dl>
