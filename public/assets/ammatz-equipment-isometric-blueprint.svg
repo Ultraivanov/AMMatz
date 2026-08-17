@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Isometric blueprint outline of AMMatz powder production equipment</title>
+  <desc id="desc">White contour SVG schematic of an industrial additive manufacturing metal powder production system with main enclosure, auxiliary unit, rear unit, operator console, fans, panels, and process fittings.</desc>
+  <defs>
+    <style>
+      .primary {
+        stroke: #ffffff;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+      }
+      .secondary {
+        stroke: #ffffff;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.72;
+        vector-effect: non-scaling-stroke;
+      }
+      .fine {
+        stroke: #ffffff;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.46;
+        vector-effect: non-scaling-stroke;
+      }
+      .ghost {
+        stroke: #ffffff;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.24;
+        vector-effect: non-scaling-stroke;
+      }
+    </style>
+  </defs>
+
+  <!-- rear service cabinet -->
+  <g id="rear-service-cabinet">
+    <path class="primary" d="M70 387 332 328 428 386 172 452Z" />
+    <path class="primary" d="M70 387v222l102 72V452" />
+    <path class="primary" d="M172 452v229l256-65V386" />
+    <path class="secondary" d="M214 442v213M318 415v214M91 425l61 42M91 493l61 42M91 562l61 42" />
+    <path class="fine" d="M111 400 303 357M117 421l49 31M119 487l49 31M119 556l49 31" />
+    <path class="secondary" d="M95 594h36M95 612h36M374 604h34" />
+    <path class="secondary" d="M128 631v39M387 600v45" />
+  </g>
+
+  <!-- auxiliary cooling unit -->
+  <g id="auxiliary-cooling-unit">
+    <path class="primary" d="M178 508 505 430 657 516 327 606Z" />
+    <path class="primary" d="M178 508v302l149 92V606" />
+    <path class="primary" d="M327 606v296l330-94V516" />
+    <path class="primary" d="M505 430v-72l152 78v80" />
+    <path class="primary" d="M178 508v-70l327-80" />
+    <path class="secondary" d="M358 597v287M488 562v285M604 530v280" />
+    <path class="secondary" d="M327 685l330-90M327 768l330-92" />
+    <path class="secondary" d="M205 544l101 62M205 625l101 62M205 706l101 62M205 786l101 62" />
+    <path class="fine" d="M210 528 495 461M210 550l97 55M210 629l97 55M210 710l97 55" />
+
+    <!-- side ventilation grille -->
+    <g id="cooling-grilles">
+      <path class="secondary" d="M226 585 304 635v128l-78-50V585Z" />
+      <path class="secondary" d="M332 622 462 590v128l-130 35V622Z" />
+      <g class="fine">
+        <path d="M239 610 292 643" />
+        <path d="M239 627 292 660" />
+        <path d="M239 644 292 677" />
+        <path d="M239 661 292 694" />
+        <path d="M239 678 292 711" />
+        <path d="M239 695 292 728" />
+        <path d="M347 641 447 615" />
+        <path d="M347 658 447 632" />
+        <path d="M347 675 447 649" />
+        <path d="M347 692 447 666" />
+        <path d="M347 709 447 683" />
+      </g>
+    </g>
+
+    <!-- gauges and control panel -->
+    <g id="gauges">
+      <circle class="primary" cx="525" cy="622" r="18" />
+      <circle class="primary" cx="525" cy="678" r="18" />
+      <circle class="primary" cx="525" cy="734" r="18" />
+      <path class="fine" d="M517 622h16M525 614v16M517 678h16M525 670v16M517 734h16M525 726v16" />
+      <path class="secondary" d="M568 610 624 598v56l-56 14Z" />
+      <path class="fine" d="M580 622h28M580 638h20M615 628h4M615 642h4" />
+    </g>
+
+    <!-- top fans -->
+    <g id="cooling-unit-fans">
+      <ellipse class="primary" cx="373" cy="466" rx="67" ry="29" />
+      <ellipse class="primary" cx="501" cy="437" rx="67" ry="29" />
+      <ellipse class="secondary" cx="373" cy="466" rx="47" ry="20" />
+      <ellipse class="secondary" cx="501" cy="437" rx="47" ry="20" />
+      <circle class="secondary" cx="373" cy="466" r="11" />
+      <circle class="secondary" cx="501" cy="437" r="11" />
+      <path class="fine" d="M318 466h110M373 442v48M334 450l78 32M334 482l78-32M446 437h110M501 413v48M462 421l78 32M462 453l78-32" />
+    </g>
+
+    <!-- wheels -->
+    <g id="auxiliary-wheels">
+      <ellipse class="primary" cx="250" cy="840" rx="18" ry="26" transform="rotate(-22 250 840)" />
+      <ellipse class="primary" cx="331" cy="889" rx="17" ry="25" transform="rotate(-22 331 889)" />
+      <ellipse class="primary" cx="614" cy="814" rx="15" ry="22" transform="rotate(18 614 814)" />
+    </g>
+  </g>
+
+  <!-- main atomization enclosure -->
+  <g id="main-enclosure">
+    <path class="primary" d="M432 260 1288 128 1460 236 630 408Z" />
+    <path class="primary" d="M432 260v458l198 128V408" />
+    <path class="primary" d="M630 408v438l830-190V236" />
+    <path class="primary" d="M432 260v-30l856-130 172 102v34" />
+    <path class="secondary" d="M630 408 432 260M630 846 432 718M1460 236 1288 128" />
+
+    <!-- main front frame rails -->
+    <path class="primary" d="M750 382v438M938 344v432M1127 306v428M1311 268v424" />
+    <path class="primary" d="M630 522 1460 340M630 650 1460 468" />
+    <path class="secondary" d="M630 408v438M1460 236v420M630 408l830-172M630 846l830-190" />
+
+    <!-- doors and panel lines -->
+    <path class="secondary" d="M671 424v395M710 416v395M805 371v405M851 361v405M987 334v404M1040 322v404M1174 296v402M1220 286v402M1365 257v386" />
+    <path class="fine" d="M670 584 939 525M939 525l188-41M1127 484l333-73M670 715l269-62M939 653l188-43M1127 610l333-78" />
+
+    <!-- side face -->
+    <path class="primary" d="M432 260 630 408v438L432 718Z" />
+    <path class="secondary" d="M474 291v452M516 322v448M558 354v444" />
+    <path class="fine" d="M450 398 610 515M450 520 610 637M450 642 610 759" />
+
+    <!-- top details -->
+    <g id="top-fittings">
+      <ellipse class="primary" cx="655" cy="219" rx="73" ry="28" />
+      <ellipse class="secondary" cx="655" cy="219" rx="50" ry="18" />
+      <circle class="secondary" cx="655" cy="219" r="11" />
+      <path class="fine" d="M594 219h122M655 196v46M613 204l84 32M613 236l84-32" />
+
+      <path class="primary" d="M1072 124 1213 106 1260 132 1120 154Z" />
+      <path class="secondary" d="M1072 124v39l48 31v-40M1120 154v40l140-24v-38" />
+      <path class="secondary" d="M1092 113V78l112-15 39 24v34M1114 75V52l70-9 30 18v23" />
+      <path class="secondary" d="M1034 126c22-52 83-52 105 0M1168 126c22-52 83-52 105 0" />
+      <path class="secondary" d="M1043 121h221M1082 95h111" />
+
+      <path class="primary" d="M1312 123 1392 111 1438 139 1359 153Z" />
+      <path class="secondary" d="M1312 123v42l47 30v-42M1359 153v42l79-17v-39" />
+      <path class="fine" d="M1376 138h30M1376 151h38" />
+    </g>
+
+    <!-- lifting rings -->
+    <g id="lifting-rings">
+      <g class="secondary">
+        <circle cx="442" cy="223" r="12" />
+        <path d="M442 235v25" />
+        <circle cx="626" cy="194" r="12" />
+        <path d="M626 206v25" />
+        <circle cx="891" cy="153" r="12" />
+        <path d="M891 165v25" />
+        <circle cx="1162" cy="113" r="12" />
+        <path d="M1162 125v25" />
+        <circle cx="1442" cy="184" r="12" />
+        <path d="M1442 196v25" />
+      </g>
+    </g>
+
+    <!-- fan on main face -->
+    <g id="main-front-fan">
+      <ellipse class="primary" cx="903" cy="641" rx="48" ry="66" transform="rotate(14 903 641)" />
+      <ellipse class="secondary" cx="903" cy="641" rx="32" ry="47" transform="rotate(14 903 641)" />
+      <circle class="secondary" cx="903" cy="641" r="12" />
+      <path class="fine" d="M858 641h90M903 590v104M873 604l60 74M873 678l60-74" />
+    </g>
+
+    <!-- fasteners -->
+    <g id="main-fasteners" class="fine">
+      <circle cx="656" cy="428" r="4" />
+      <circle cx="735" cy="412" r="4" />
+      <circle cx="922" cy="375" r="4" />
+      <circle cx="1109" cy="336" r="4" />
+      <circle cx="1294" cy="298" r="4" />
+      <circle cx="1438" cy="269" r="4" />
+      <circle cx="656" cy="820" r="4" />
+      <circle cx="735" cy="801" r="4" />
+      <circle cx="922" cy="762" r="4" />
+      <circle cx="1109" cy="720" r="4" />
+      <circle cx="1294" cy="679" r="4" />
+      <circle cx="1438" cy="647" r="4" />
+    </g>
+
+    <!-- geometric panel motif as white construction lines -->
+    <g id="geometric-panel-lines" class="ghost">
+      <path d="M690 740 760 658 840 790 690 740Z" />
+      <path d="M760 658 842 600 840 790" />
+      <path d="M842 600 930 750 840 790" />
+      <path d="M1180 647 1260 560 1350 665 1180 647Z" />
+      <path d="M1260 560 1360 505 1350 665" />
+      <path d="M1360 505 1450 590 1350 665" />
+      <path d="M1040 420c100 12 179 52 246 124" />
+      <path d="M1030 447c112 13 211 62 294 145" />
+      <path d="M1020 474c120 15 234 72 324 172" />
+    </g>
+
+    <!-- feet -->
+    <g id="main-feet">
+      <path class="primary" d="M628 846v30M612 876h32" />
+      <path class="primary" d="M858 794v30M842 824h32" />
+      <path class="primary" d="M1128 734v30M1112 764h32" />
+      <path class="primary" d="M1396 673v30M1380 703h32" />
+      <path class="secondary" d="M453 718v26M438 744h30" />
+    </g>
+  </g>
+
+  <!-- operator console -->
+  <g id="operator-console">
+    <path class="primary" d="M1372 430 1498 400 1566 443 1442 478Z" />
+    <path class="primary" d="M1372 430v230l70 48V478" />
+    <path class="primary" d="M1442 478v230l124-36V443" />
+    <path class="primary" d="M1394 353 1514 326 1572 388 1449 420Z" />
+    <path class="primary" d="M1449 420v72l123-35v-69" />
+    <path class="primary" d="M1394 353v72l55 67v-72" />
+    <path class="secondary" d="M1418 369 1490 353 1524 389 1451 407Z" />
+    <path class="secondary" d="M1430 383 1478 373 1501 394 1453 405Z" />
+    <path class="secondary" d="M1408 448 1542 412" />
+    <path class="secondary" d="M1422 478 1555 439" />
+    <path class="fine" d="M1415 515 1555 475M1415 578 1555 536M1415 638 1555 594M1470 470v220" />
+    <circle class="secondary" cx="1517" cy="448" r="8" />
+    <circle class="secondary" cx="1540" cy="441" r="8" />
+    <circle class="secondary" cx="1492" cy="455" r="8" />
+    <path class="secondary" d="M1455 456h31M1514 485h33M1511 505h25" />
+    <path class="primary" d="M1429 710v28M1415 738h29M1544 675v28M1530 703h29" />
+  </g>
+
+  <!-- blueprint construction guides -->
+  <g id="construction-guides" class="ghost">
+    <path d="M70 840 1510 512" />
+    <path d="M173 888 1560 570" />
+    <path d="M416 196 1475 98" />
+    <path d="M420 235 1517 178" />
+    <path d="M44 388 432 260" />
+    <path d="M1458 236 1564 442" />
+  </g>
+</svg>
