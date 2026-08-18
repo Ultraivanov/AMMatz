@@ -3,25 +3,25 @@
 > Single source of truth for phases and block status.
 > Block details and tasks live in `.codex/blocks/<ID>.md`.
 
-Last updated: 2026-08-15
+Last updated: 2026-08-18
 
 ## Active Phase
 
 | Field | Value |
 |---|---|
 | Phase | Phase 1 - MVP Site |
-| Goal | Build a production-shaped landing page running locally with maintainable code |
+| Goal | Build and refine a production-shaped landing page running locally with maintainable code |
 | Started | 2026-08-15 |
-| Target | Complete `M-01` scaffold, then build `M-02` landing page |
+| Target | Complete MVP landing page content, assets, and production-first structure |
 
 ## Active Block
 
 | Field | Value |
 |---|---|
-| Block ID | M-02 |
-| Title | Landing Page Build |
-| Status | in-progress |
-| File | `.codex/blocks/M-02.md` |
+| Block ID | M-03 |
+| Title | Production-First Blueprint Repack |
+| Status | done |
+| File | `.codex/blocks/M-03.md` |
 
 ## Phase Map
 
@@ -39,8 +39,8 @@ Last updated: 2026-08-15
 | ID | Block | Status |
 |---|---|---|
 | M-01 | Frontend Scaffold | done |
-| M-02 | Landing Page Build | in-progress |
-| M-03 | Content and Asset Optimization | pending |
+| M-02 | Landing Page Build | done |
+| M-03 | Production-First Blueprint Repack | done |
 
 ### Phase 2 - Production Readiness
 > Goal: quality, SEO, accessibility, performance, and deployment pipeline.

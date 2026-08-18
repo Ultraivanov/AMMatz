@@ -2,9 +2,9 @@ import Link from "next/link";
 
 import {
   BlueprintFrame,
+  EngineeringCard,
   EvidencePlate,
   MeasurementLabel,
-  ProcessChain,
   ProgramMatrix,
   SpecPanel,
 } from "./blueprint-components";
@@ -257,17 +257,11 @@ function ProductionPlatformSection() {
           <SpecPanel items={productionPlatform.operatingNotes} />
         </div>
       </div>
-      <BlueprintFrame className="mt-8 p-5">
-        <div className="grid gap-8 lg:grid-cols-[3fr_9fr]">
-          <div>
-            <MeasurementLabel>Process chain</MeasurementLabel>
-            <h3 className="mt-4 text-2xl leading-tight font-semibold">
-              From feedstock to classified spherical powder
-            </h3>
-          </div>
-          <ProcessChain steps={productionPlatform.process} />
-        </div>
-      </BlueprintFrame>
+      <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        {productionPlatform.processCards.map((card) => (
+          <EngineeringCard card={card} key={card.title} />
+        ))}
+      </div>
     </SectionShell>
   );
 }
@@ -282,7 +276,7 @@ function RecyclingRouteSection() {
       intro={recyclingRoute.body}
       title={recyclingRoute.title}
     >
-      <div className="grid gap-6 lg:grid-cols-[5fr_7fr]">
+      <div className="grid gap-6 lg:grid-cols-[4fr_8fr]">
         <BlueprintFrame className="p-6">
           <MeasurementLabel>Claim</MeasurementLabel>
           <p className="mt-5 text-3xl leading-tight font-semibold">
@@ -292,17 +286,11 @@ function RecyclingRouteSection() {
             {recyclingRoute.result}
           </p>
         </BlueprintFrame>
-        <BlueprintFrame className="p-6">
-          <MeasurementLabel>Accepted feedstock</MeasurementLabel>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-            {recyclingRoute.acceptedFeedstock.map((item) => (
-              <li className="grid grid-cols-[24px_1fr] gap-3 leading-7" key={item}>
-                <span className="mt-3 h-px bg-primary" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </BlueprintFrame>
+        <div className="grid gap-4 md:grid-cols-3">
+          {recyclingRoute.cards.map((card) => (
+            <EngineeringCard card={card} key={card.title} />
+          ))}
+        </div>
       </div>
     </SectionShell>
   );

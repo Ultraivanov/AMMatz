@@ -182,6 +182,53 @@ export const landingContent = {
       "Direct formation of spherical powder particles",
       "Particle-size classification for target ranges",
     ],
+    processCards: [
+      {
+        label: "Input / 01",
+        title: "Wire feedstock",
+        summary: "1.5-5 mm wire is fed into the plasma zone as a controlled consumable cathode.",
+        details: [
+          "Stable wire feedstock for repeatable melting behavior",
+          "Material route suited to high-value AM alloy systems",
+        ],
+      },
+      {
+        label: "Energy / 02",
+        title: "Argon plasma arc",
+        summary: "A proprietary plasma torch generates localized heat in an inert argon atmosphere.",
+        details: [
+          "Torch design and atmosphere control are part of the platform know-how",
+          "Localized heating limits the process window to the active melt zone",
+        ],
+      },
+      {
+        label: "Formation / 03",
+        title: "Atomization",
+        summary: "Molten metal separates into spherical particles directly from the wire tip.",
+        details: [
+          "Particle morphology is driven by plasma melting and gas dynamics",
+          "Route targets AM-ready spherical powder rather than irregular crushed feedstock",
+        ],
+      },
+      {
+        label: "Control / 04",
+        title: "Classification",
+        summary: "Produced powder is classified into target particle-size windows for AM processes.",
+        details: [
+          "LPBF and DED windows can be addressed through particle-size selection",
+          "Classification connects production output to application requirements",
+        ],
+      },
+      {
+        label: "Output / 05",
+        title: "AM powder",
+        summary: "The result is spherical metal powder specified around material, morphology, and PSD.",
+        details: [
+          "Output can support custom powder development and qualification work",
+          "Powder requirements are matched to the target AM process",
+        ],
+      },
+    ],
     operatingNotes: [
       { label: "Atmosphere", value: "Argon" },
       { label: "Torch", value: "Proprietary design" },
@@ -201,6 +248,35 @@ export const landingContent = {
       "Other high-performance metal feedstock",
     ],
     result: "Spherical powder with controlled particle-size distribution for additive manufacturing.",
+    cards: [
+      {
+        label: "Input",
+        title: "Accepted feedstock",
+        summary: "High-value metal streams are treated as production inputs, not waste.",
+        details: [
+          "Machining chips, swarf, solid scrap, and offcuts",
+          "Reused additive-manufacturing powder where the route is relevant",
+        ],
+      },
+      {
+        label: "Route",
+        title: "Plasma processing",
+        summary: "Feedstock is returned to the powder route through plasma melting and gas atomization.",
+        details: [
+          "Process development focuses on spherical powder formation",
+          "The route is designed around high-performance metal feedstock",
+        ],
+      },
+      {
+        label: "Output",
+        title: "AM-ready powder",
+        summary: "Recovered material is converted into powder specified for additive manufacturing.",
+        details: [
+          "Controlled particle-size distribution",
+          "Spherical morphology for AM process requirements",
+        ],
+      },
+    ],
   },
   rfq: {
     id: "rfq",
