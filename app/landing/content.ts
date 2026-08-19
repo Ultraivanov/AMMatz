@@ -27,28 +27,28 @@ export const navItems: NavItem[] = [
 
 export const powderEvidence = {
   tungsten: {
-    src: "/assets/powder-tungsten-microscopy.png",
+    src: "/assets/powder-tungsten-proof-4k.jpg",
     alt: "AMMatz-Tungsten microscopy image",
-    width: 534,
-    height: 406,
+    width: 3840,
+    height: 2880,
   },
   titanium: {
-    src: "/assets/powder-ti-6al-4v-microscopy.png",
+    src: "/assets/powder-ti-6al-4v-proof-4k.jpg",
     alt: "AMMatz-Ti-6Al-4V microscopy image",
-    width: 524,
-    height: 404,
+    width: 3840,
+    height: 2880,
   },
   tantalum: {
-    src: "/assets/powder-tantalum-microscopy.png",
+    src: "/assets/powder-tantalum-proof-4k.jpg",
     alt: "AMMatz-Tantalum microscopy image",
-    width: 530,
-    height: 416,
+    width: 3840,
+    height: 2880,
   },
   almg6: {
-    src: "/assets/powder-almg6-nanopowder-microscopy.png",
+    src: "/assets/powder-almg6-nanopowder-proof-4k.jpg",
     alt: "AMMatz-AlMg6 Nanopowder microscopy image",
-    width: 530,
-    height: 404,
+    width: 3840,
+    height: 2880,
   },
   coreShellLabels: {
     src: "/assets/core-shell-original-labels-microscopy.png",
@@ -155,7 +155,7 @@ export const landingContent = {
     evidence: [
       { label: "Tungsten / refractory powder", image: powderEvidence.tungsten },
       { label: "Ti-6Al-4V / AM alloy", image: powderEvidence.titanium },
-      { label: "Core-shell architecture", image: powderEvidence.coreShellLabels },
+      { label: "Tantalum / refractory powder", image: powderEvidence.tantalum },
       { label: "AlMg6 / nanopowder", image: powderEvidence.almg6 },
     ],
   },
