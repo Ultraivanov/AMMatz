@@ -90,23 +90,29 @@ export function EngineeringCard({
     label: string;
     title: string;
     summary: string;
-    details: readonly string[];
+    details?: readonly string[];
   };
   className?: string;
 }) {
   return (
     <BlueprintFrame className={`flex h-full flex-col p-5 ${className}`}>
       <MeasurementLabel>{card.label}</MeasurementLabel>
-      <h3 className="mt-4 text-2xl leading-tight font-semibold">{card.title}</h3>
-      <p className="mt-4 text-base leading-7 text-foreground">{card.summary}</p>
-      <ul className="mt-5 grid gap-3 text-sm leading-6 text-muted-foreground">
-        {card.details.map((detail) => (
-          <li className="grid grid-cols-[18px_1fr] gap-3" key={detail}>
-            <span className="mt-3 h-px bg-primary" />
-            <span>{detail}</span>
-          </li>
-        ))}
-      </ul>
+      <h3 className="mt-4 text-2xl leading-tight font-semibold [text-wrap:pretty]">
+        {card.title}
+      </h3>
+      <p className="mt-4 text-base leading-7 text-foreground [text-wrap:pretty]">
+        {card.summary}
+      </p>
+      {card.details?.length ? (
+        <ul className="mt-5 grid gap-3 text-sm leading-6 text-muted-foreground">
+          {card.details.map((detail) => (
+            <li className="grid grid-cols-[18px_1fr] gap-3" key={detail}>
+              <span className="mt-3 h-px bg-primary" />
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </BlueprintFrame>
   );
 }

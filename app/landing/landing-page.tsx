@@ -182,29 +182,6 @@ function HeroSection() {
   );
 }
 
-function CapabilityIndex() {
-  return (
-    <section className="border-t border-border py-[var(--section-gap-mobile)] md:py-[var(--section-gap)]">
-      <div className="grid gap-4 lg:grid-cols-[5fr_3.5fr_3.5fr]">
-        {landingContent.capabilities.map((capability, index) => (
-          <BlueprintFrame className="min-h-64 p-5" key={capability.id}>
-            <MeasurementLabel>
-              Capability / {String(index + 1).padStart(2, "0")}
-            </MeasurementLabel>
-            <h2 className="mt-5 text-3xl leading-tight font-semibold">
-              {capability.title}
-            </h2>
-            <p className="mt-5 text-lg leading-8">{capability.statement}</p>
-            <p className="mt-5 text-sm leading-7 text-muted-foreground">
-              {capability.detail}
-            </p>
-          </BlueprintFrame>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function PowderProgramsSection() {
   const { powderPrograms } = landingContent;
 
@@ -261,6 +238,24 @@ function ProductionPlatformSection() {
         {productionPlatform.processCards.map((card) => (
           <EngineeringCard card={card} key={card.title} />
         ))}
+      </div>
+      <div className="mt-10 grid gap-6 border-t border-border pt-8 lg:grid-cols-[4fr_8fr]">
+        <div>
+          <MeasurementLabel>{productionPlatform.processKnowhow.eyebrow}</MeasurementLabel>
+          <h3 className="mt-4 max-w-sm text-4xl leading-none font-semibold [text-wrap:balance]">
+            {productionPlatform.processKnowhow.title}
+          </h3>
+        </div>
+        <div>
+          <p className="max-w-3xl text-xl leading-8 text-muted-foreground [text-wrap:pretty]">
+            {productionPlatform.processKnowhow.intro}
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {productionPlatform.processKnowhow.cards.map((card) => (
+              <EngineeringCard card={card} key={card.title} />
+            ))}
+          </div>
+        </div>
       </div>
     </SectionShell>
   );
@@ -374,7 +369,6 @@ export function LandingPage() {
     <PageShell>
       <Header />
       <HeroSection />
-      <CapabilityIndex />
       <PowderProgramsSection />
       <ProductionPlatformSection />
       <RecyclingRouteSection />

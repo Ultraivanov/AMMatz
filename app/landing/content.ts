@@ -88,32 +88,6 @@ export const landingContent = {
       height: 746,
     } satisfies LandingImage,
   },
-  capabilities: [
-    {
-      id: "powder-development",
-      title: "Custom Powder Development",
-      statement:
-        "Powder chemistry, morphology, and particle-size distribution are tuned for target AM processes.",
-      detail:
-        "Capabilities cover refractory metals, titanium alloys, nickel-based superalloys, aluminum alloys, copper alloys, nanopowders, LPBF, DED, and core-shell structures.",
-    },
-    {
-      id: "plasma-atomization",
-      title: "Plasma Atomization",
-      statement:
-        "The powder production route is built around proprietary plasma atomization equipment.",
-      detail:
-        "Wire feedstock acts as a consumable cathode in an argon plasma arc, forming spherical particles directly from localized melting.",
-    },
-    {
-      id: "metal-recycling",
-      title: "Metal Recycling",
-      statement:
-        "High-value feedstock can be returned to the production cycle as AM-ready powder.",
-      detail:
-        "Accepted streams include machining chips, swarf, solid scrap, offcuts, and reused additive-manufacturing powder.",
-    },
-  ],
   powderPrograms: {
     id: "powder-programs",
     title: "Metal Powders for Additive Manufacturing",
@@ -234,6 +208,32 @@ export const landingContent = {
       { label: "Torch", value: "Proprietary design" },
       { label: "Wire diameter", value: "1.5-5 mm" },
     ],
+    processKnowhow: {
+      eyebrow: "Process know-how",
+      title: "Built from research. Tuned for production.",
+      intro:
+        "AMMatz turns additive manufacturing research experience into a controlled powder production method: proprietary equipment, repeatable process windows, and adaptation to customer-specific material requirements.",
+      cards: [
+        {
+          label: "Research input",
+          title: "Materials understanding",
+          summary:
+            "Powder behavior, AM testing, and metal 3D printing experience inform material choices and development priorities.",
+        },
+        {
+          label: "Production system",
+          title: "Equipment control",
+          summary:
+            "Proprietary atomization hardware keeps the route controlled from feedstock input to spherical powder output.",
+        },
+        {
+          label: "Customer route",
+          title: "Process fit",
+          summary:
+            "Powder parameters are tuned around alloy, AM process, particle-size range, and qualification needs.",
+        },
+      ],
+    },
   },
   recyclingRoute: {
     id: "recycling-route",
