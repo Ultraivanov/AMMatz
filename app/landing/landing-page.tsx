@@ -187,7 +187,7 @@ function PowderProgramsSection() {
 
   return (
     <SectionShell
-      eyebrow="Material and process windows"
+      eyebrow={powderPrograms.eyebrow}
       id={powderPrograms.id}
       intro={powderPrograms.intro}
       title={powderPrograms.title}
@@ -209,12 +209,31 @@ function PowderProgramsSection() {
   );
 }
 
+function ProcessKnowhowSection() {
+  const { processKnowhow } = landingContent;
+
+  return (
+    <SectionShell
+      eyebrow={processKnowhow.eyebrow}
+      id={processKnowhow.id}
+      intro={processKnowhow.intro}
+      title={processKnowhow.title}
+    >
+      <div className="grid gap-4 md:grid-cols-3">
+        {processKnowhow.cards.map((card) => (
+          <EngineeringCard card={card} key={card.title} />
+        ))}
+      </div>
+    </SectionShell>
+  );
+}
+
 function ProductionPlatformSection() {
   const { productionPlatform } = landingContent;
 
   return (
     <SectionShell
-      eyebrow="Equipment and production route"
+      eyebrow={productionPlatform.eyebrow}
       id={productionPlatform.id}
       intro={productionPlatform.intro}
       title={productionPlatform.title}
@@ -239,24 +258,6 @@ function ProductionPlatformSection() {
           <EngineeringCard card={card} key={card.title} />
         ))}
       </div>
-      <div className="mt-10 grid gap-6 border-t border-border pt-8 lg:grid-cols-[4fr_8fr]">
-        <div>
-          <MeasurementLabel>{productionPlatform.processKnowhow.eyebrow}</MeasurementLabel>
-          <h3 className="mt-4 max-w-sm text-4xl leading-none font-semibold [text-wrap:balance]">
-            {productionPlatform.processKnowhow.title}
-          </h3>
-        </div>
-        <div>
-          <p className="max-w-3xl text-xl leading-8 text-muted-foreground [text-wrap:pretty]">
-            {productionPlatform.processKnowhow.intro}
-          </p>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {productionPlatform.processKnowhow.cards.map((card) => (
-              <EngineeringCard card={card} key={card.title} />
-            ))}
-          </div>
-        </div>
-      </div>
     </SectionShell>
   );
 }
@@ -266,7 +267,7 @@ function RecyclingRouteSection() {
 
   return (
     <SectionShell
-      eyebrow="Recycling route"
+      eyebrow={recyclingRoute.eyebrow}
       id={recyclingRoute.id}
       intro={recyclingRoute.body}
       title={recyclingRoute.title}
@@ -369,6 +370,7 @@ export function LandingPage() {
     <PageShell>
       <Header />
       <HeroSection />
+      <ProcessKnowhowSection />
       <PowderProgramsSection />
       <ProductionPlatformSection />
       <RecyclingRouteSection />

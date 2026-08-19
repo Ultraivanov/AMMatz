@@ -88,11 +88,39 @@ export const landingContent = {
       height: 746,
     } satisfies LandingImage,
   },
+  processKnowhow: {
+    id: "process-knowhow",
+    eyebrow: "Process know-how",
+    title: "Research translated into production.",
+    intro:
+      "AMMatz brings more than a decade of AM research, powder testing, and metal 3D printing experience into proprietary atomization equipment and customer-specific powder development.",
+    cards: [
+      {
+        label: "Research input",
+        title: "Materials understanding",
+        summary:
+          "Powder behavior, AM testing, and metal 3D printing experience inform material choices and development priorities.",
+      },
+      {
+        label: "Production system",
+        title: "Equipment control",
+        summary:
+          "Proprietary atomization hardware keeps the route controlled from feedstock input to spherical powder output.",
+      },
+      {
+        label: "Customer route",
+        title: "Process fit",
+        summary:
+          "Powder parameters are tuned around alloy, AM process, particle-size range, and qualification needs.",
+      },
+    ],
+  },
   powderPrograms: {
     id: "powder-programs",
-    title: "Metal Powders for Additive Manufacturing",
+    eyebrow: "AM metal powders",
+    title: "Powders built for additive manufacturing process windows.",
     intro:
-      "AMMatz develops custom and application-specific powders around material families, target AM processes, particle-size distribution, and morphology rather than a static catalog.",
+      "Material families, particle-size ranges, morphology targets, and custom structures are grouped around how the powder will be used in AM.",
     groups: [
       {
         title: "Refractory metals",
@@ -133,9 +161,10 @@ export const landingContent = {
   },
   productionPlatform: {
     id: "production-platform",
-    title: "Powder Production Platform",
+    eyebrow: "Powder production",
+    title: "Plasma atomization, controlled end to end.",
     intro:
-      "The platform combines proprietary atomization equipment, plasma-torch design, argon atmosphere control, and process know-how for spherical metal powder production.",
+      "The production route starts with wire feedstock and uses an argon plasma arc to form spherical particles before classification into target powder ranges.",
     equipmentImage: {
       src: "/assets/atomization-equipment-photo.png",
       alt: "AMMatz proprietary atomization equipment",
@@ -208,39 +237,14 @@ export const landingContent = {
       { label: "Torch", value: "Proprietary design" },
       { label: "Wire diameter", value: "1.5-5 mm" },
     ],
-    processKnowhow: {
-      eyebrow: "Process know-how",
-      title: "Built from research. Tuned for production.",
-      intro:
-        "AMMatz turns additive manufacturing research experience into a controlled powder production method: proprietary equipment, repeatable process windows, and adaptation to customer-specific material requirements.",
-      cards: [
-        {
-          label: "Research input",
-          title: "Materials understanding",
-          summary:
-            "Powder behavior, AM testing, and metal 3D printing experience inform material choices and development priorities.",
-        },
-        {
-          label: "Production system",
-          title: "Equipment control",
-          summary:
-            "Proprietary atomization hardware keeps the route controlled from feedstock input to spherical powder output.",
-        },
-        {
-          label: "Customer route",
-          title: "Process fit",
-          summary:
-            "Powder parameters are tuned around alloy, AM process, particle-size range, and qualification needs.",
-        },
-      ],
-    },
   },
   recyclingRoute: {
     id: "recycling-route",
-    title: "Metal Powder Recycling",
+    eyebrow: "Powder recycling",
+    title: "High-value feedstock returned to AM.",
     claim: "Return high-value metal feedstock into AM powder production.",
     body:
-      "AMMatz is developing a metal powder recycling route based on plasma melting and gas atomization, producing spherical powders with controlled particle-size distribution.",
+      "Machining scrap, offcuts, and reused AM powder can be routed back into spherical powder production with controlled particle-size distribution.",
     acceptedFeedstock: [
       "Machining chips and swarf",
       "Solid metal scrap and offcuts",
@@ -280,7 +284,7 @@ export const landingContent = {
   },
   rfq: {
     id: "rfq",
-    title: "Start a powder development inquiry",
+    title: "Start with the powder requirements.",
     body:
       "Send the target alloy, AM process, particle-size range, approximate volume, and feedstock form if recycling is relevant.",
     checklist: [
