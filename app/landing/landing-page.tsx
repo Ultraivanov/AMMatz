@@ -10,6 +10,7 @@ import {
   PowderProofSlider,
   ProductionMedia,
   RecyclingIcon,
+  RequestField,
   SectionHeading,
 } from "./blueprint-components";
 import { brand, landingContent, navItems } from "./content";
@@ -21,13 +22,17 @@ function Logo() {
         alt="AMMatz Group"
         className="block h-10 w-[131px] md:hidden"
         height={40}
-        src="/assets/logo-mobile.svg"
+        src="/assets/ammatz_desktop-logo.png"
         width={131}
       />
-      <span className="hidden h-20 w-[262px] items-center gap-1 p-2 md:flex">
-        <Image alt="" aria-hidden="true" className="h-16 w-[61px]" height={64} src="/assets/logo-symbol.svg" width={61} />
-        <Image alt="" aria-hidden="true" className="h-[57px] w-[183px]" height={57} src="/assets/logo-wordmark.svg" width={183} />
-      </span>
+      <Image
+        alt="AMMatz Group"
+        className="hidden h-20 w-[262px] md:block"
+        height={80}
+        priority
+        src="/assets/ammatz_desktop-logo.png"
+        width={262}
+      />
     </Link>
   );
 }
@@ -179,15 +184,11 @@ function RfqSection() {
       </h2>
       <form className="mt-4 grid gap-4 md:mt-6" action={`mailto:${brand.email}`} method="post">
         {section.fields.map((field) => (
-          <label className="block" key={field}>
-            <span className="sr-only">{field}</span>
-            <input
-              className="h-9 w-full border border-white/60 bg-transparent px-4 py-3 text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/80 outline-none placeholder:text-white/60 hover:border-white/80 focus:border-[#287fe4] focus:placeholder:text-white/80 not-placeholder-shown:border-white/80 not-placeholder-shown:bg-white/5 disabled:border-white/20 disabled:text-white/20 disabled:placeholder:text-white/20 md:h-[41px] md:text-sm"
-              name={field.toLowerCase().replaceAll(" ", "-")}
-              placeholder={field}
-              type={field.toLowerCase().includes("email") ? "email" : "text"}
-            />
-          </label>
+          <RequestField
+            key={field}
+            label={field}
+            type={field.toLowerCase().includes("email") ? "email" : "text"}
+          />
         ))}
       </form>
     </section>

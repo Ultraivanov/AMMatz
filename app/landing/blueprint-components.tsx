@@ -73,7 +73,7 @@ export function ProofImage({
   return (
     <Image
       alt={image.alt}
-      className={`block h-full w-full object-cover ${className}`}
+      className={`block h-full w-full ${image.fit === "contain" ? "object-contain" : "object-cover"} ${className}`}
       height={image.height}
       priority={priority}
       src={image.src}
@@ -152,7 +152,7 @@ export function PowderProofSlider({
   return (
     <div>
       <div className="px-4 py-2 md:px-40">
-        <figure className="relative h-[271px] w-full max-w-[361px] overflow-hidden md:h-[341px] md:max-w-[455px]">
+        <figure className="relative h-[271px] w-full max-w-[361px] overflow-hidden border border-white/30 bg-black md:h-[341px] md:max-w-[455px]">
           <ProofImage image={activeItem.image} />
           <figcaption className="absolute bottom-0 left-0 bg-[#06284f] px-3 py-2 font-mono text-xs text-white md:text-lg">
             {activeItem.label}
@@ -287,5 +287,60 @@ export function RecyclingIcon({ type }: { type: string }) {
       src={iconMap[type] ?? iconMap.input}
       width={48}
     />
+  );
+}
+
+function isValidField(type: string, value: string) {
+  if (!value.trim()) {
+    return false;
+  }
+
+  if (type === "email") {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  return value.trim().length > 1;
+}
+
+export function RequestField({
+  label,
+  type = "text",
+}: {
+  label: string;
+  type?: "text" | "email";
+}) {
+  const [value, setValue] = useState("");
+  const [touched, setTouched] = useState(false);
+  const isFilled = value.length > 0;
+  const isValid = isValidField(type, value);
+  const showError = touched && isFilled && !isValid;
+  const stateClass = showError
+    ? "border-[#fa5554]/80 text-white/60"
+    : isValid
+      ? "border-white/60 text-white/60"
+      : "border-white/60 text-white/80 focus-within:border-[#287fe4]";
+
+  return (
+    <label className={`flex h-9 items-center justify-between border px-4 py-3 md:h-[41px] ${stateClass} ${isFilled ? "bg-white/5" : "bg-transparent"}`}>
+      <span className="sr-only">{label}</span>
+      <input
+        className="min-w-0 flex-1 bg-transparent text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-inherit uppercase outline-none placeholder:text-white/60 md:text-sm"
+        name={label.toLowerCase().replaceAll(" ", "-")}
+        onBlur={() => setTouched(true)}
+        onChange={(event) => setValue(event.target.value)}
+        placeholder={label}
+        type={type}
+        value={value}
+      />
+      {isValid ? (
+        <Image
+          alt="Field completed"
+          className="ml-3 size-3 shrink-0"
+          height={12}
+          src="/assets/icon-field-success.svg"
+          width={12}
+        />
+      ) : null}
+    </label>
   );
 }

@@ -3,6 +3,7 @@ export type LandingImage = {
   alt: string;
   width: number;
   height: number;
+  fit?: "cover" | "contain";
 };
 
 export type LandingVideo = {
@@ -49,6 +50,7 @@ export const powderEvidence = [
       alt: "Core-shell powder microscopy image",
       width: 606,
       height: 406,
+      fit: "contain",
     },
   },
   {
