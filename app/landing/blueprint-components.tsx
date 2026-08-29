@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import type { LandingImage, LandingVideo } from "./content";
 
@@ -65,10 +65,12 @@ export function ProofImage({
   image,
   className = "",
   priority = false,
+  sizes,
 }: {
   image: LandingImage;
   className?: string;
   priority?: boolean;
+  sizes?: string;
 }) {
   return (
     <Image
@@ -76,6 +78,7 @@ export function ProofImage({
       className={`block h-full w-full ${image.fit === "contain" ? "object-contain" : "object-cover"} ${className}`}
       height={image.height}
       priority={priority}
+      sizes={sizes}
       src={image.src}
       width={image.width}
     />
@@ -144,22 +147,35 @@ export function PowderProofSlider({
 }: {
   items: ReadonlyArray<{ label: string; image: LandingImage }>;
 }) {
-  const [index, setIndex] = useState(0);
-  const activeItem = items[index];
-  const previous = () => setIndex((current) => (current === 0 ? items.length - 1 : current - 1));
-  const next = () => setIndex((current) => (current === items.length - 1 ? 0 : current + 1));
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scrollByCard = (direction: -1 | 1) => {
+    const track = trackRef.current;
+    const card = track?.firstElementChild;
+    if (!track || !(card instanceof HTMLElement)) return;
+    const step = card.offsetWidth + 16;
+    track.scrollBy({ left: direction * step, behavior: "smooth" });
+  };
 
   return (
     <div>
-      <div className="px-4 py-2 md:px-40">
-        <figure className="relative h-[271px] w-full max-w-[361px] overflow-hidden border border-white/30 bg-black md:h-[341px] md:max-w-[455px]">
-          <ProofImage image={activeItem.image} />
-          <figcaption className="absolute bottom-0 left-0 bg-[#06284f] px-3 py-2 font-mono text-xs text-white md:text-lg">
-            {activeItem.label}
-          </figcaption>
-        </figure>
+      <div
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 py-2 [-ms-overflow-style:none] [scrollbar-width:none] md:scroll-px-40 md:px-40 [&::-webkit-scrollbar]:hidden"
+        ref={trackRef}
+      >
+        {items.map((item) => (
+          <figure
+            className="relative h-[271px] w-[361px] shrink-0 snap-start overflow-hidden border border-white/30 bg-black md:h-[341px] md:w-[455px]"
+            key={item.label}
+          >
+            <ProofImage image={item.image} sizes="(min-width: 768px) 455px, 361px" />
+            <figcaption className="absolute bottom-0 left-0 bg-[#06284f] px-4 py-2 font-mono text-xs leading-[22px] text-white md:text-base">
+              {item.label}
+            </figcaption>
+          </figure>
+        ))}
       </div>
-      <SliderNav label={activeItem.label} onNext={next} onPrevious={previous} />
+      <SliderNav onNext={() => scrollByCard(1)} onPrevious={() => scrollByCard(-1)} />
     </div>
   );
 }
@@ -169,13 +185,13 @@ export function SliderNav({
   onNext,
   onPrevious,
 }: {
-  label: string;
+  label?: string;
   onNext?: () => void;
   onPrevious?: () => void;
 }) {
   return (
     <div className="flex items-center gap-2 px-4 py-2 md:px-40">
-      <div className="flex w-[155px] items-center justify-between px-4 py-2 text-white/75">
+      <div className="flex items-center gap-4 py-2 text-white/75">
         <button
           aria-label="Previous slide"
           className="grid size-8 place-items-center font-mono text-2xl hover:text-white"
@@ -193,9 +209,11 @@ export function SliderNav({
           ›
         </button>
       </div>
-      <p className="font-sans text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/70 uppercase md:text-sm">
-        {label}
-      </p>
+      {label ? (
+        <p className="font-sans text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/70 uppercase md:text-sm">
+          {label}
+        </p>
+      ) : null}
     </div>
   );
 }
