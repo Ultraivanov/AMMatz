@@ -46,11 +46,10 @@ export const powderEvidence = [
   {
     label: "Ni-Shell and WC-Core",
     image: {
-      src: "/assets/core-shell-microscopy.png",
+      src: "/assets/core-shell-proof-4k.jpg",
       alt: "Core-shell powder microscopy image",
-      width: 606,
-      height: 406,
-      fit: "contain",
+      width: 3840,
+      height: 2880,
     },
   },
   {
