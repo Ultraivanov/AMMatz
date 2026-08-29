@@ -1,100 +1,47 @@
 import Link from "next/link";
 
 import {
-  BlueprintFrame,
+  BlueprintVideo,
+  Divider,
   EngineeringCard,
-  EvidencePlate,
-  MeasurementLabel,
-  ProgramMatrix,
-  SpecPanel,
+  ParameterSheet,
+  PowderListing,
+  PowderProofSlider,
+  ProductionMedia,
+  RecyclingIcon,
+  SectionHeading,
 } from "./blueprint-components";
 import { brand, landingContent, navItems } from "./content";
 
-const rfqMailto = `mailto:${brand.email}?subject=${encodeURIComponent(
-    "AMMatz powder production RFQ",
-)}&body=${encodeURIComponent(
-  [
-    "Target alloy:",
-    "Target AM process:",
-    "Particle-size range:",
-    "Approximate volume:",
-    "Feedstock form, if recycling is relevant:",
-  ].join("\n"),
-)}`;
-
-function LogoMark() {
+function Logo() {
   return (
-    <svg
-      aria-hidden="true"
-      className="size-14 shrink-0 text-foreground"
-      viewBox="0 0 72 72"
-      fill="none"
-    >
-      <g
-        stroke="currentColor"
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-        strokeWidth="1.7"
-      >
-        <path d="M12 17 28 8 44 17 28 26Z" />
-        <path d="M28 26v18L12 35V17" />
-        <path d="M28 26 44 17v18L28 44" />
-        <path d="M28 8v18M20 12.5l16 9" />
-        <path d="M28 44 44 53 60 44V26" />
-        <path d="M44 35 60 26M44 35v18" />
-        <path d="M12 35 28 44 12 53" />
-        <path d="M12 53 28 62 44 53" />
-        <path d="M12 35v18" />
-      </g>
-      <path d="M12 17 28 8 44 17" stroke="var(--primary)" strokeWidth="2" />
-    </svg>
-  );
-}
-
-function PageShell({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <a
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:border focus:border-primary focus:bg-background focus:px-4 focus:py-3 focus:text-primary"
-        href="#main-content"
-      >
-        Skip to main content
-      </a>
-      <main
-        className="mx-auto min-h-dvh w-full max-w-[var(--page-max)] overflow-x-hidden px-4 py-6 text-foreground sm:px-10 lg:px-[var(--page-pad-desktop)]"
-        id="main-content"
-      >
-        {children}
-      </main>
-    </>
+    <Link className="flex items-center gap-2" href="/" aria-label="AMMatz home">
+      <svg aria-hidden="true" className="h-10 w-[131px] md:h-20 md:w-[262px]" viewBox="0 0 262 80" fill="none">
+        <g stroke="currentColor" strokeWidth="1.4">
+          <path d="M8 22 31 9l23 13-23 13z" />
+          <path d="M31 35v28L8 50V22" />
+          <path d="M31 35 54 22v28L31 63" />
+          <path d="M31 9v26M18 16l23 13" />
+        </g>
+        <text x="74" y="34" fill="currentColor" fontFamily="monospace" fontSize="20" fontWeight="700">
+          AMMatz
+        </text>
+        <text x="74" y="56" fill="currentColor" fontFamily="monospace" fontSize="15">
+          Group
+        </text>
+      </svg>
+    </Link>
   );
 }
 
 function Header() {
   return (
-    <header className="grid min-w-0 gap-6 border-b border-border pb-6 md:grid-cols-[4fr_8fr]">
-      <Link className="flex w-fit items-start gap-3" href="/" aria-label="AMMatz home">
-        <LogoMark />
-        <span className="text-3xl leading-none font-medium">
-          AMMatz
-          <br />
-          Group
-          <span className="mt-2 block font-mono text-[10px] leading-tight text-muted-foreground">
-            {brand.descriptor}
-          </span>
-        </span>
-      </Link>
-      <nav
-        aria-label="Primary navigation"
-        className="grid w-full max-w-[22rem] min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center gap-2 text-sm sm:flex sm:max-w-none sm:flex-wrap sm:gap-x-7 sm:gap-y-3 md:justify-end"
-      >
+    <header className="sticky top-0 z-40 flex h-[73px] items-center justify-between border-b border-white/30 bg-[#06284f] px-4 shadow-[0_2px_4px_rgba(0,0,0,0.12)] md:h-[129px] md:px-40">
+      <Logo />
+      <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
         {navItems.map((item) => (
           <a
-            className={
-              item.isPrimary
-                ? "min-w-0 border border-border px-3 py-3 text-center font-mono text-xs uppercase transition-colors hover:border-primary hover:text-primary sm:px-4"
-                : "min-w-0 border border-transparent py-2 text-center transition-colors hover:text-primary sm:border-0 sm:py-0 sm:text-left"
-            }
+            className="px-4 py-2 text-sm leading-[1.2] font-medium tracking-[1.5px] text-white transition-colors hover:text-white/70"
             href={item.href}
             key={item.href}
           >
@@ -106,260 +53,163 @@ function Header() {
   );
 }
 
-function SectionShell({
-  id,
-  title,
-  eyebrow,
-  intro,
-  children,
-  className = "",
-}: {
-  id?: string;
-  title: string;
-  eyebrow: string;
-  intro?: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <section
-      className={`border-t border-border py-[var(--section-gap-mobile)] md:py-[var(--section-gap)] ${className}`}
-      id={id}
-    >
-      <div className="grid gap-8 md:grid-cols-[4fr_8fr]">
-        <div>
-          <MeasurementLabel>{eyebrow}</MeasurementLabel>
-          <h2 className="mt-3 text-4xl leading-tight font-semibold md:text-5xl">
-            {title}
-          </h2>
-        </div>
-        {intro ? (
-          <p className="max-w-4xl text-xl leading-9 text-muted-foreground">
-            {intro}
-          </p>
-        ) : null}
-      </div>
-      <div className="mt-10">{children}</div>
-    </section>
-  );
-}
-
 function HeroSection() {
   const { hero } = landingContent;
 
   return (
-    <section className="grid min-w-0 gap-10 py-12 md:min-h-[calc(100dvh-118px)] md:grid-cols-[5fr_7fr] md:items-center md:py-18">
-      <div className="flex w-full max-w-[22rem] min-w-0 flex-col items-start sm:max-w-2xl">
-        <MeasurementLabel>{hero.eyebrow}</MeasurementLabel>
-        <h1 className="mt-4 max-w-full text-4xl leading-[0.98] font-semibold break-words sm:text-5xl md:text-7xl">
-          {hero.title}
-        </h1>
-        <p className="mt-6 max-w-xl text-xl leading-8 text-muted-foreground">
-          {hero.summary}
-        </p>
-        <ol className="mt-8 grid gap-4">
-          {hero.proofPoints.map((point, index) => (
-            <li className="grid grid-cols-[38px_1fr] gap-3" key={point}>
-              <span className="font-mono text-xs text-primary">
-                P-{String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="min-w-0 leading-7">{point}</span>
-            </li>
-          ))}
-        </ol>
+    <section className="border-b border-white/10 px-4 py-8 md:px-40 md:py-16">
+      <h1 className="max-w-[760px] font-mono text-[42px] leading-[48px] font-bold text-white md:text-[42px] md:leading-[1.2]">
+        {hero.title}
+      </h1>
+      <div className="mt-6 aspect-[4/3] overflow-hidden bg-black md:mt-10 md:aspect-video">
+        <BlueprintVideo video={hero.mobileVideo} className="md:hidden" />
+        <BlueprintVideo video={hero.video} className="hidden md:block" />
       </div>
+      <p className="mt-6 max-w-[1120px] text-base leading-[1.2] font-light text-white/60 md:mt-10 md:text-[32px]">
+        {hero.summary}
+      </p>
+      <div className="mt-6 grid gap-4 md:flex md:gap-8">
+        <a className="border border-white/60 bg-[#06284f] px-6 py-4 text-center text-sm tracking-[1px] text-white shadow-[2px_2px_0_white] md:min-w-[290px]" href="#powder-programs">
+          {hero.primaryCta}
+        </a>
+        <a className="px-6 py-4 text-center text-sm tracking-[1px] text-white md:min-w-[226px]" href="#rfq">
+          {hero.secondaryCta}
+        </a>
+      </div>
+    </section>
+  );
+}
 
-      <div className="grid w-full max-w-[22rem] min-w-0 gap-4 sm:max-w-none">
-        <EvidencePlate
-          className="aspect-[1216/746]"
-          image={hero.image}
-          label="System drawing / AMMatz-PA500"
-          priority
-        />
-        <SpecPanel items={hero.systemFacts} />
+function ProcessKnowhowSection() {
+  const section = landingContent.processKnowhow;
+
+  return (
+    <section className="border-b border-white/10 px-4 py-8 md:px-40 md:py-16" id={section.id}>
+      <SectionHeading eyebrow={section.eyebrow} intro={section.intro} title={section.title} />
+      <div className="mt-8 grid gap-4 md:grid-cols-4">
+        {section.cards.map((card) => (
+          <EngineeringCard
+            key={card.title}
+            label={card.label}
+            summary={card.summary}
+            title={card.title}
+          />
+        ))}
       </div>
     </section>
   );
 }
 
 function PowderProgramsSection() {
-  const { powderPrograms } = landingContent;
+  const section = landingContent.powderPrograms;
 
   return (
-    <SectionShell
-      eyebrow={powderPrograms.eyebrow}
-      id={powderPrograms.id}
-      intro={powderPrograms.intro}
-      title={powderPrograms.title}
-    >
-      <div className="grid gap-8 xl:grid-cols-[7fr_5fr]">
-        <ProgramMatrix groups={powderPrograms.groups} />
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
-          {powderPrograms.evidence.map((item) => (
-            <EvidencePlate
-              className="aspect-[4/3]"
-              image={item.image}
-              key={item.label}
-              label={item.label}
+    <section className="border-b border-white/10 py-8 md:py-16" id={section.id}>
+      <div className="px-4 md:px-40">
+        <SectionHeading eyebrow={section.eyebrow} intro={section.intro} title={section.title} />
+        <div className="mt-4 md:mt-6">
+          {section.groups.map((group, index) => (
+            <PowderListing
+              index={index}
+              items={group.items}
+              key={group.title}
+              title={group.title}
             />
           ))}
         </div>
       </div>
-    </SectionShell>
+      <div className="mt-4 md:mt-10">
+        <PowderProofSlider items={section.evidence} />
+      </div>
+    </section>
   );
 }
 
-function ProcessKnowhowSection() {
-  const { processKnowhow } = landingContent;
+function ProductionSection() {
+  const section = landingContent.productionPlatform;
 
   return (
-    <SectionShell
-      eyebrow={processKnowhow.eyebrow}
-      id={processKnowhow.id}
-      intro={processKnowhow.intro}
-      title={processKnowhow.title}
-    >
-      <div className="grid gap-4 md:grid-cols-3">
-        {processKnowhow.cards.map((card) => (
-          <EngineeringCard card={card} key={card.title} />
+    <section className="border-b border-white/10 py-8 md:py-16" id={section.id}>
+      <div className="px-4 md:px-40">
+        <SectionHeading eyebrow={section.eyebrow} intro={section.intro} title={section.title} />
+      </div>
+      <div className="mt-6 md:mt-12">
+        <ProductionMedia equipment={section.equipment} mobileVideo={section.mobileVideo} video={section.video} />
+      </div>
+      <div className="px-0 md:px-40">
+        <ParameterSheet rows={section.parameters} title="PROCESS PARAMETERS" />
+        <ParameterSheet rows={section.route} title="CONTROLLED PROCESS ROUTE" />
+      </div>
+    </section>
+  );
+}
+
+function RecyclingSection() {
+  const section = landingContent.recyclingRoute;
+
+  return (
+    <section className="border-b border-white/10 px-4 py-8 md:px-40 md:py-16" id={section.id}>
+      <SectionHeading eyebrow={section.eyebrow} intro={section.intro} title={section.title} />
+      <div className="mt-6 grid gap-4 md:mt-8 md:gap-6">
+        {section.points.map((point) => (
+          <article className="grid gap-2 border-b border-white/10 py-2 md:gap-4 md:border-0 md:py-0" key={point.title}>
+            <div className="flex items-start gap-4 text-white md:items-center">
+              <span className="grid size-6 shrink-0 place-items-center text-white md:size-12">
+                <RecyclingIcon type={point.icon} />
+              </span>
+              <h3 className="font-mono text-lg leading-[1.2] font-medium md:text-2xl">
+                {point.title}
+              </h3>
+            </div>
+            <p className="pl-10 text-sm leading-[1.25] text-white/70 md:max-w-[1120px] md:pl-0 md:text-lg md:leading-[1.2]">
+              {point.body}
+            </p>
+          </article>
         ))}
       </div>
-    </SectionShell>
-  );
-}
-
-function ProductionPlatformSection() {
-  const { productionPlatform } = landingContent;
-
-  return (
-    <SectionShell
-      eyebrow={productionPlatform.eyebrow}
-      id={productionPlatform.id}
-      intro={productionPlatform.intro}
-      title={productionPlatform.title}
-    >
-      <div className="grid gap-6 lg:grid-cols-[7fr_5fr]">
-        <EvidencePlate
-          className="aspect-[1216/746]"
-          image={productionPlatform.equipmentImage}
-          label="Atomization equipment / production platform"
-        />
-        <div className="grid gap-6">
-          <EvidencePlate
-            className="aspect-[634/284]"
-            image={productionPlatform.plasmaImage}
-            label="Argon plasma arc"
-          />
-          <SpecPanel items={productionPlatform.operatingNotes} />
-        </div>
-      </div>
-      <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-        {productionPlatform.processCards.map((card) => (
-          <EngineeringCard card={card} key={card.title} />
-        ))}
-      </div>
-    </SectionShell>
-  );
-}
-
-function RecyclingRouteSection() {
-  const { recyclingRoute } = landingContent;
-
-  return (
-    <SectionShell
-      eyebrow={recyclingRoute.eyebrow}
-      id={recyclingRoute.id}
-      intro={recyclingRoute.body}
-      title={recyclingRoute.title}
-    >
-      <div className="grid gap-6 lg:grid-cols-[4fr_8fr]">
-        <BlueprintFrame className="p-6">
-          <MeasurementLabel>Claim</MeasurementLabel>
-          <p className="mt-5 text-3xl leading-tight font-semibold">
-            {recyclingRoute.claim}
-          </p>
-          <p className="mt-6 border-l-2 border-primary pl-4 text-lg leading-8 text-muted-foreground">
-            {recyclingRoute.result}
-          </p>
-        </BlueprintFrame>
-        <div className="grid gap-4 md:grid-cols-3">
-          {recyclingRoute.cards.map((card) => (
-            <EngineeringCard card={card} key={card.title} />
-          ))}
-        </div>
-      </div>
-    </SectionShell>
+    </section>
   );
 }
 
 function RfqSection() {
-  const { rfq } = landingContent;
+  const section = landingContent.rfq;
 
   return (
-    <section
-      className="grid gap-8 border-y border-border py-[var(--section-gap-mobile)] md:grid-cols-[5fr_7fr] md:py-[var(--section-gap)]"
-      id={rfq.id}
-    >
-      <div>
-        <MeasurementLabel>Technical inquiry</MeasurementLabel>
-        <h2 className="mt-4 text-4xl leading-tight font-semibold md:text-5xl">
-          {rfq.title}
-        </h2>
-        <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">
-          {rfq.body}
-        </p>
-      </div>
-      <BlueprintFrame className="p-6">
-        <MeasurementLabel>Include in message</MeasurementLabel>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-          {rfq.checklist.map((item) => (
-            <li className="border-t border-border pt-4 leading-7" key={item}>
-              {item}
-            </li>
-          ))}
-        </ul>
-        <a
-          aria-label="Email AMMatz powder production RFQ"
-          className="mt-8 inline-flex border border-primary px-5 py-4 font-mono text-sm text-primary uppercase transition-colors hover:bg-primary hover:text-primary-foreground"
-          href={rfqMailto}
-        >
-          {brand.email}
-        </a>
-      </BlueprintFrame>
+    <section className="px-4 py-8 md:px-40 md:py-16" id={section.id}>
+      <h2 className="font-mono text-3xl leading-[1.2] font-bold text-white md:text-[42px]">
+        {section.title}
+      </h2>
+      <form className="mt-4 grid gap-4 md:mt-6" action={`mailto:${brand.email}`} method="post">
+        {section.fields.map((field) => (
+          <label className="block" key={field}>
+            <span className="sr-only">{field}</span>
+            <input
+              className="h-10 w-full border border-white/60 bg-transparent px-4 text-sm text-white outline-none placeholder:text-white/60 focus:border-white"
+              name={field.toLowerCase().replaceAll(" ", "-")}
+              placeholder={field}
+              type={field.includes("email") ? "email" : "text"}
+            />
+          </label>
+        ))}
+      </form>
     </section>
   );
 }
 
 function Footer() {
   return (
-    <footer className="grid gap-8 py-8 text-sm text-muted-foreground md:grid-cols-[4fr_8fr]">
-      <div>
-        <MeasurementLabel>AMMatz Group</MeasurementLabel>
-        <p className="mt-3 max-w-xs leading-7">
-          Advanced metal powders, plasma atomization, and metal powder recycling
-          for additive manufacturing.
-        </p>
-      </div>
-      <div className="grid gap-6 sm:grid-cols-2 md:justify-items-end">
-        <nav aria-label="Footer navigation" className="grid gap-3 sm:text-right">
-          {navItems.map((item) => (
-            <a className="hover:text-primary" href={item.href} key={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <div className="sm:text-right">
-          <p className="font-mono text-[11px] text-primary uppercase">
-            Technical contact
-          </p>
-          <a
-            aria-label="Email AMMatz powder production RFQ"
-            className="mt-3 block text-foreground hover:text-primary"
-            href={rfqMailto}
-          >
-            {brand.email}
-          </a>
-        </div>
+    <footer className="grid gap-4 border-t border-white/10 bg-[#041e3b] px-4 py-8 md:px-40 md:py-16">
+      <h2 className="font-mono text-xl leading-[1.2] font-bold text-white md:text-2xl md:font-medium">
+        {brand.name}
+      </h2>
+      <p className="max-w-[1120px] text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/75 uppercase md:text-lg md:normal-case md:tracking-normal">
+        Advanced metal powder production for additive manufacturing
+      </p>
+      <div className="text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/40 md:text-lg md:tracking-normal">
+        <a className="block underline underline-offset-2 hover:text-white" href={`mailto:${brand.email}`}>
+          {brand.email}
+        </a>
+        <p>Israel · AM powders</p>
       </div>
     </footer>
   );
@@ -367,15 +217,22 @@ function Footer() {
 
 export function LandingPage() {
   return (
-    <PageShell>
+    <>
       <Header />
-      <HeroSection />
-      <ProcessKnowhowSection />
-      <PowderProgramsSection />
-      <ProductionPlatformSection />
-      <RecyclingRouteSection />
-      <RfqSection />
+      <main>
+        <HeroSection />
+        <Divider />
+        <ProcessKnowhowSection />
+        <Divider />
+        <PowderProgramsSection />
+        <Divider />
+        <ProductionSection />
+        <Divider />
+        <RecyclingSection />
+        <Divider />
+        <RfqSection />
+      </main>
       <Footer />
-    </PageShell>
+    </>
   );
 }

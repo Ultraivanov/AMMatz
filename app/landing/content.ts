@@ -5,95 +5,96 @@ export type LandingImage = {
   height: number;
 };
 
-export type NavItem = {
+export type LandingVideo = {
+  src: string;
+  poster: string;
   label: string;
-  href: string;
-  isPrimary?: boolean;
 };
 
 export const brand = {
   name: "AMMatz Group",
-  shortName: "AMMatz",
   descriptor: "Advanced Materials & Manufacturing",
   email: "office@ammatz.com",
 };
 
-export const navItems: NavItem[] = [
-  { label: "AM Metal Powders", href: "#powder-programs" },
-  { label: "Powder Production", href: "#production-platform" },
-  { label: "Powder Recycling", href: "#recycling-route" },
-  { label: "RFQ", href: "#rfq", isPrimary: true },
-];
+export const navItems = [
+  { label: "AM metal Powders", href: "#powder-programs" },
+  { label: "Powders Production", href: "#production-platform" },
+  { label: "metal Recycling", href: "#recycling-route" },
+] as const;
 
-export const powderEvidence = {
-  tungsten: {
-    src: "/assets/powder-tungsten-proof-4k.jpg",
-    alt: "AMMatz-Tungsten microscopy image",
-    width: 3840,
-    height: 2880,
+export const powderEvidence = [
+  {
+    label: "AMMatz-Tungsten",
+    image: {
+      src: "/assets/powder-tungsten-proof-4k.jpg",
+      alt: "AMMatz tungsten powder microscopy image",
+      width: 3840,
+      height: 2880,
+    },
   },
-  titanium: {
-    src: "/assets/powder-ti-6al-4v-proof-4k.jpg",
-    alt: "AMMatz-Ti-6Al-4V microscopy image",
-    width: 3840,
-    height: 2880,
+  {
+    label: "AMMatz-AlMg6-Nanopowder",
+    image: {
+      src: "/assets/powder-almg6-nanopowder-proof-4k.jpg",
+      alt: "AMMatz AlMg6 nanopowder microscopy image",
+      width: 3840,
+      height: 2880,
+    },
   },
-  tantalum: {
-    src: "/assets/powder-tantalum-proof-4k.jpg",
-    alt: "AMMatz-Tantalum microscopy image",
-    width: 3840,
-    height: 2880,
+  {
+    label: "Ni-Shell and WC-Core",
+    image: {
+      src: "/assets/core-shell-microscopy.png",
+      alt: "Core-shell powder microscopy image",
+      width: 606,
+      height: 406,
+    },
   },
-  almg6: {
-    src: "/assets/powder-almg6-nanopowder-proof-4k.jpg",
-    alt: "AMMatz-AlMg6 Nanopowder microscopy image",
-    width: 3840,
-    height: 2880,
+  {
+    label: "AMMatz-Tantalum",
+    image: {
+      src: "/assets/powder-tantalum-proof-4k.jpg",
+      alt: "AMMatz tantalum powder microscopy image",
+      width: 3840,
+      height: 2880,
+    },
   },
-  coreShellLabels: {
-    src: "/assets/core-shell-original-labels-microscopy.png",
-    alt: "Core-shell powder microscopy image with original labels",
-    width: 616,
-    height: 480,
+  {
+    label: "AMMatz-Ti-6Al-4V",
+    image: {
+      src: "/assets/powder-ti-6al-4v-proof-4k.jpg",
+      alt: "AMMatz Ti-6Al-4V powder microscopy image",
+      width: 3840,
+      height: 2880,
+    },
   },
-  coreShell: {
-    src: "/assets/core-shell-microscopy.png",
-    alt: "Core-shell powder microscopy image",
-    width: 606,
-    height: 406,
-  },
-} satisfies Record<string, LandingImage>;
+] satisfies Array<{ label: string; image: LandingImage }>;
 
 export const landingContent = {
   hero: {
-    eyebrow: "Metal powders for additive manufacturing",
-    title: "Advanced Metal Powder Production.",
+    title: "Advanced Metal Powders Made in Israel",
     summary:
-      "Israel's first specialized producer focused on AM powder development, plasma atomization, and high-value metal powder recycling.",
-    proofPoints: [
-      "Tailored powder properties for AM process requirements",
-      "Proprietary plasma atomization platform developed in Israel",
-      "Recycling route from high-value feedstock to spherical powder",
-    ],
-    systemFacts: [
-      { label: "Primary process", value: "Plasma atomization" },
-      { label: "Feedstock", value: "Wire, scrap, used AM powder" },
-      { label: "Output", value: "Spherical AM powder" },
-      { label: "Materials", value: "Refractory metals and AM alloy systems" },
-    ],
-    image: {
-      src: "/assets/atomization-equipment-blueprint.png",
-      alt: "Blueprint drawing of AMMatz atomization equipment",
-      width: 1216,
-      height: 746,
-    } satisfies LandingImage,
+      "Israel's first specialized producer of advanced metal powders for additive manufacturing: from material development, to production and recycling. Built on proprietary equipment.",
+    primaryCta: "Choose your solution",
+    secondaryCta: "Discuss details",
+    video: {
+      src: "/assets/argon-arc-desktop-16x9.mp4",
+      poster: "/assets/argon-arc-desktop-poster.jpg",
+      label: "Argon plasma arc",
+    } satisfies LandingVideo,
+    mobileVideo: {
+      src: "/assets/argon-arc-mobile-4x3.mp4",
+      poster: "/assets/argon-arc-mobile-poster.jpg",
+      label: "Argon plasma arc",
+    } satisfies LandingVideo,
   },
   processKnowhow: {
     id: "process-knowhow",
-    eyebrow: "Process know-how",
-    title: "Research translated into production.",
+    eyebrow: "/// Process know-how",
+    title: "Built from research. Tuned for production.",
     intro:
-      "AMMatz brings more than a decade of AM research, powder testing, and metal 3D printing experience into proprietary atomization equipment and customer-specific powder development.",
+      "10 years of AM expertise turned into controlled powder production: proprietary equipment, repeatable processes, full traceability.",
     cards: [
       {
         label: "Research input",
@@ -113,186 +114,108 @@ export const landingContent = {
         summary:
           "Powder parameters are tuned around alloy, AM process, particle-size range, and qualification needs.",
       },
+      {
+        label: "Quality & consistency",
+        title: "Batch control",
+        summary:
+          "Full batch traceability. Stable, reproducible powder characteristics, compliant with international requirements.",
+      },
     ],
   },
   powderPrograms: {
     id: "powder-programs",
-    eyebrow: "AM metal powders",
-    title: "Powders built for additive manufacturing process windows.",
+    eyebrow: "/// AM metal powders",
+    title: "Powders built for additive manufacturing process windows",
     intro:
-      "Material families, particle-size ranges, morphology targets, and custom structures are grouped around how the powder will be used in AM.",
+      "Powder specifications are developed around material family, particle-size distribution, morphology, and the target additive manufacturing process.",
     groups: [
       {
-        title: "Refractory metals",
-        items: ["C-103 (Nb-Hf-Ti)", "Tantalum", "Tungsten", "Niobium"],
+        title: "Refractory metals & alloys",
+        items: ["C-103", "Tantalum", "Tungsten", "Niobium"],
       },
       {
-        title: "Additive manufacturing alloys",
-        items: [
-          "Ti-6Al-4V",
-          "Nickel-based superalloys",
-          "Aluminum alloys",
-          "Copper alloys",
-        ],
+        title: "High-performance alloys",
+        items: ["Ti-6Al-4V", "Nickel-based superalloys", "Aluminum alloys", "Copper alloys"],
       },
       {
         title: "Particle-size ranges",
-        items: [
-          "20-300 nm nanopowders",
-          "20-63 um LPBF",
-          "63-150 um DED and other powder-fed AM processes",
-        ],
+        items: ["20-300 nm nanopowders", "20-63 um LPBF", "63-150 um DED / powder-fed AM"],
       },
       {
         title: "Custom powder structures",
-        items: [
-          "Core-shell powders",
-          "Custom powder development",
-          "Composition and morphology tuning",
-        ],
+        items: ["Core-shell powders", "Custom powder development", "Composition and morphology tuning"],
       },
     ],
-    evidence: [
-      { label: "Tungsten / refractory powder", image: powderEvidence.tungsten },
-      { label: "Ti-6Al-4V / AM alloy", image: powderEvidence.titanium },
-      { label: "Tantalum / refractory powder", image: powderEvidence.tantalum },
-      { label: "AlMg6 / nanopowder", image: powderEvidence.almg6 },
-    ],
+    evidence: powderEvidence,
   },
   productionPlatform: {
     id: "production-platform",
-    eyebrow: "Powder production",
-    title: "Plasma atomization, controlled end to end.",
+    eyebrow: "/// Powder production",
+    title: "Plasma atomization keeps the route controlled",
     intro:
-      "The production route starts with wire feedstock and uses an argon plasma arc to form spherical particles before classification into target powder ranges.",
-    equipmentImage: {
+      "Wire feedstock, argon plasma arc, localized melting, particle formation, and classification are treated as one controlled production route.",
+    equipment: {
       src: "/assets/atomization-equipment-photo.png",
       alt: "AMMatz proprietary atomization equipment",
       width: 1216,
       height: 746,
     } satisfies LandingImage,
-    plasmaImage: {
-      src: "/assets/argon-plasma-arc.png",
-      alt: "Real argon plasma arc",
-      width: 634,
-      height: 284,
-    } satisfies LandingImage,
-    process: [
-      "Feedstock wire diameter: 1.5-5 mm",
-      "Wire functions as a consumable cathode",
-      "Plasma arc generated in argon atmosphere",
-      "Localized melting at the wire tip",
-      "Direct formation of spherical powder particles",
-      "Particle-size classification for target ranges",
+    video: {
+      src: "/assets/argon-arc-desktop-wide.mp4",
+      poster: "/assets/argon-arc-desktop-poster.jpg",
+      label: "Argon plasma arc",
+    } satisfies LandingVideo,
+    mobileVideo: {
+      src: "/assets/argon-arc-mobile-4x3.mp4",
+      poster: "/assets/argon-arc-mobile-poster.jpg",
+      label: "Argon plasma arc",
+    } satisfies LandingVideo,
+    parameters: [
+      { key: "WIRE DIAMETER", value: "1.5-5 mm" },
+      { key: "TORCH DESIGN", value: "proprietary" },
+      { key: "WIRE ROLE", value: "consumable cathode" },
+      { key: "ATMOSPHERE", value: "argon" },
+      { key: "OUTPUT", value: "spherical powder particles" },
     ],
-    processCards: [
-      {
-        label: "Input / 01",
-        title: "Wire feedstock",
-        summary: "1.5-5 mm wire is fed into the plasma zone as a controlled consumable cathode.",
-        details: [
-          "Stable wire feedstock for repeatable melting behavior",
-          "Material route suited to high-value AM alloy systems",
-        ],
-      },
-      {
-        label: "Energy / 02",
-        title: "Argon plasma arc",
-        summary: "A proprietary plasma torch generates localized heat in an inert argon atmosphere.",
-        details: [
-          "Torch design and atmosphere control are part of the platform know-how",
-          "Localized heating limits the process window to the active melt zone",
-        ],
-      },
-      {
-        label: "Formation / 03",
-        title: "Atomization",
-        summary: "Molten metal separates into spherical particles directly from the wire tip.",
-        details: [
-          "Particle morphology is driven by plasma melting and gas dynamics",
-          "Route targets AM-ready spherical powder rather than irregular crushed feedstock",
-        ],
-      },
-      {
-        label: "Control / 04",
-        title: "Classification",
-        summary: "Produced powder is classified into target particle-size windows for AM processes.",
-        details: [
-          "LPBF and DED windows can be addressed through particle-size selection",
-          "Classification connects production output to application requirements",
-        ],
-      },
-      {
-        label: "Output / 05",
-        title: "AM powder",
-        summary: "The result is spherical metal powder specified around material, morphology, and PSD.",
-        details: [
-          "Output can support custom powder development and qualification work",
-          "Powder requirements are matched to the target AM process",
-        ],
-      },
-    ],
-    operatingNotes: [
-      { label: "Atmosphere", value: "Argon" },
-      { label: "Torch", value: "Proprietary design" },
-      { label: "Wire diameter", value: "1.5-5 mm" },
+    route: [
+      { key: "Wire feedstock", value: "traceable wire input before atomization" },
+      { key: "Argon plasma arc", value: "consumable cathode inside an argon atmosphere" },
+      { key: "Localized melting", value: "energy is focused at the wire tip" },
+      { key: "Classification", value: "output classified by PSD, morphology, and AM process" },
     ],
   },
   recyclingRoute: {
     id: "recycling-route",
-    eyebrow: "Powder recycling",
-    title: "High-value feedstock returned to AM.",
-    claim: "Return high-value metal feedstock into AM powder production.",
-    body:
-      "Machining scrap, offcuts, and reused AM powder can be routed back into spherical powder production with controlled particle-size distribution.",
-    acceptedFeedstock: [
-      "Machining chips and swarf",
-      "Solid metal scrap and offcuts",
-      "Reused additive-manufacturing powder",
-      "Other high-performance metal feedstock",
-    ],
-    result: "Spherical powder with controlled particle-size distribution for additive manufacturing.",
-    cards: [
+    eyebrow: "/// Metal recycling",
+    title: "High-value feedstock returned to special spheroidal powder for AM",
+    intro:
+      "Selected scrap, off-spec powder, and valuable metal residues are evaluated as feedstock for controlled reprocessing and AM-oriented powder development.",
+    points: [
       {
-        label: "Input",
-        title: "Accepted feedstock",
-        summary: "High-value metal streams are treated as production inputs, not waste.",
-        details: [
-          "Machining chips, swarf, solid scrap, and offcuts",
-          "Reused additive-manufacturing powder where the route is relevant",
-        ],
+        icon: "input",
+        title: "Input streams",
+        body: "High-value metal scrap, off-spec powder, and selected residues are assessed before reprocessing.",
       },
       {
-        label: "Route",
-        title: "Plasma processing",
-        summary: "Feedstock is returned to the powder route through plasma melting and gas atomization.",
-        details: [
-          "Process development focuses on spherical powder formation",
-          "The route is designed around high-performance metal feedstock",
-        ],
+        icon: "recycle",
+        title: "Material recovery",
+        body: "Reusable metal is separated from low-value waste and prepared for controlled powder production.",
       },
       {
-        label: "Output",
-        title: "AM-ready powder",
-        summary: "Recovered material is converted into powder specified for additive manufacturing.",
-        details: [
-          "Controlled particle-size distribution",
-          "Spherical morphology for AM process requirements",
-        ],
+        icon: "workflow",
+        title: "Controlled route",
+        body: "Reprocessing is matched to alloy family, contamination risk, target PSD, and AM requirements.",
+      },
+      {
+        icon: "return",
+        title: "AM return",
+        body: "Recovered feedstock can support prototype batches, qualification work, and customer-specific AM routes.",
       },
     ],
   },
   rfq: {
     id: "rfq",
-    title: "Start with the powder requirements.",
-    body:
-      "Send the target alloy, AM process, particle-size range, approximate volume, and feedstock form if recycling is relevant.",
-    checklist: [
-      "Material or alloy",
-      "Target AM process",
-      "Particle-size range",
-      "Approximate volume",
-      "Feedstock form for recycling projects",
-    ],
+    title: "Request information",
+    fields: ["Your name", "company", "work email"],
   },
 } as const;
