@@ -75,7 +75,7 @@ export const landingContent = {
   hero: {
     title: "Advanced Metal Powders Made in Israel",
     summary:
-      "Israel's first specialized producer of advanced metal powders for additive manufacturing: from material development, to production and recycling. Built on proprietary equipment.",
+      "Israel's first specialized producer of advanced metal powders for additive manufacturing: from material development, to production and recycling. Built on proprietary equipment",
     primaryCta: "Choose your solution",
     secondaryCta: "Discuss details",
     video: {
@@ -92,33 +92,33 @@ export const landingContent = {
   processKnowhow: {
     id: "process-knowhow",
     eyebrow: "/// Process know-how",
-    title: "Built from research. Tuned for production.",
+    title: "Built from research. Tuned for production",
     intro:
-      "10 years of AM expertise turned into controlled powder production: proprietary equipment, repeatable processes, full traceability.",
+      "10 years of AM expertise turned into controlled powder production: proprietary equipment, repeatable processes, full traceability",
     cards: [
       {
         label: "Research input",
         title: "Materials understanding",
         summary:
-          "Powder behavior, AM testing, and metal 3D printing experience inform material choices and development priorities.",
+          "Powder behavior, AM testing, and metal 3D printing experience inform material choices and development priorities",
       },
       {
         label: "Production system",
         title: "Equipment control",
         summary:
-          "Proprietary atomization hardware keeps the route controlled from feedstock input to spherical powder output.",
+          "Proprietary atomization hardware keeps the route controlled from feedstock input to spherical powder output",
       },
       {
         label: "Customer route",
         title: "Process fit",
         summary:
-          "Powder parameters are tuned around alloy, AM process, particle-size range, and qualification needs.",
+          "Powder parameters are tuned around alloy, AM process, particle-size range, and qualification needs",
       },
       {
         label: "Quality & consistency",
         title: "Batch control",
         summary:
-          "Full batch traceability. Stable, reproducible powder characteristics, compliant with international requirements.",
+          "Full batch traceability. Stable, reproducible powder characteristics, compliant with international requirements",
       },
     ],
   },
@@ -127,7 +127,7 @@ export const landingContent = {
     eyebrow: "/// AM metal powders",
     title: "Powders built for additive manufacturing process windows",
     intro:
-      "Powder specifications are developed around material family, particle-size distribution, morphology, and the target additive manufacturing process.",
+      "Powder specifications are developed around material family, particle-size distribution, morphology, and the target additive manufacturing process",
     groups: [
       {
         title: "Refractory metals & alloys",
@@ -153,7 +153,7 @@ export const landingContent = {
     eyebrow: "/// Powder production",
     title: "Plasma atomization keeps the route controlled",
     intro:
-      "Wire feedstock, argon plasma arc, localized melting, particle formation, and classification are treated as one controlled production route.",
+      "Wire feedstock, argon plasma arc, localized melting, particle formation, and classification are treated as one controlled production route",
     equipment: {
       src: "/assets/atomization-equipment-photo.png",
       alt: "AMMatz proprietary atomization equipment",
@@ -189,33 +189,33 @@ export const landingContent = {
     eyebrow: "/// Metal recycling",
     title: "High-value feedstock returned to special spheroidal powder for AM",
     intro:
-      "Selected scrap, off-spec powder, and valuable metal residues are evaluated as feedstock for controlled reprocessing and AM-oriented powder development.",
+      "Selected scrap, off-spec powder, and valuable metal residues are evaluated as feedstock for controlled reprocessing and AM-oriented powder development",
     points: [
       {
         icon: "input",
         title: "Input streams",
-        body: "High-value metal scrap, off-spec powder, and selected residues are assessed before reprocessing.",
+        body: "High-value metal scrap, off-spec powder, and selected residues are assessed before reprocessing",
       },
       {
         icon: "recycle",
         title: "Material recovery",
-        body: "Reusable metal is separated from low-value waste and prepared for controlled powder production.",
+        body: "Reusable metal is separated from low-value waste and prepared for controlled powder production",
       },
       {
         icon: "workflow",
         title: "Controlled route",
-        body: "Reprocessing is matched to alloy family, contamination risk, target PSD, and AM requirements.",
+        body: "Reprocessing is matched to alloy family, contamination risk, target PSD, and AM requirements",
       },
       {
         icon: "return",
         title: "AM return",
-        body: "Recovered feedstock can support prototype batches, qualification work, and customer-specific AM routes.",
+        body: "Recovered feedstock can support prototype batches, qualification work, and customer-specific AM routes",
       },
     ],
   },
   rfq: {
     id: "rfq",
     title: "Request information",
-    fields: ["Your name", "company", "work email"],
+    fields: ["Your name", "Company", "work Email"],
   },
 } as const;

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -15,28 +16,25 @@ import { brand, landingContent, navItems } from "./content";
 
 function Logo() {
   return (
-    <Link className="flex items-center gap-2" href="/" aria-label="AMMatz home">
-      <svg aria-hidden="true" className="h-10 w-[131px] md:h-20 md:w-[262px]" viewBox="0 0 262 80" fill="none">
-        <g stroke="currentColor" strokeWidth="1.4">
-          <path d="M8 22 31 9l23 13-23 13z" />
-          <path d="M31 35v28L8 50V22" />
-          <path d="M31 35 54 22v28L31 63" />
-          <path d="M31 9v26M18 16l23 13" />
-        </g>
-        <text x="74" y="34" fill="currentColor" fontFamily="monospace" fontSize="20" fontWeight="700">
-          AMMatz
-        </text>
-        <text x="74" y="56" fill="currentColor" fontFamily="monospace" fontSize="15">
-          Group
-        </text>
-      </svg>
+    <Link className="block" href="/" aria-label="AMMatz home">
+      <Image
+        alt="AMMatz Group"
+        className="block h-10 w-[131px] md:hidden"
+        height={40}
+        src="/assets/logo-mobile.svg"
+        width={131}
+      />
+      <span className="hidden h-20 w-[262px] items-center gap-1 p-2 md:flex">
+        <Image alt="" aria-hidden="true" className="h-16 w-[61px]" height={64} src="/assets/logo-symbol.svg" width={61} />
+        <Image alt="" aria-hidden="true" className="h-[57px] w-[183px]" height={57} src="/assets/logo-wordmark.svg" width={183} />
+      </span>
     </Link>
   );
 }
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 flex h-[73px] items-center justify-between border-b border-white/30 bg-[#06284f] px-4 shadow-[0_2px_4px_rgba(0,0,0,0.12)] md:h-[129px] md:px-40">
+    <header className="flex h-[73px] items-center justify-between border-b border-white/30 bg-[#06284f] px-4 shadow-[0_2px_4px_rgba(0,0,0,0.12)] md:h-[129px] md:px-40">
       <Logo />
       <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
         {navItems.map((item) => (
@@ -184,10 +182,10 @@ function RfqSection() {
           <label className="block" key={field}>
             <span className="sr-only">{field}</span>
             <input
-              className="h-10 w-full border border-white/60 bg-transparent px-4 text-sm text-white outline-none placeholder:text-white/60 focus:border-white"
+              className="h-9 w-full border border-white/60 bg-transparent px-4 py-3 text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/80 outline-none placeholder:text-white/60 hover:border-white/80 focus:border-[#287fe4] focus:placeholder:text-white/80 not-placeholder-shown:border-white/80 not-placeholder-shown:bg-white/5 disabled:border-white/20 disabled:text-white/20 disabled:placeholder:text-white/20 md:h-[41px] md:text-sm"
               name={field.toLowerCase().replaceAll(" ", "-")}
               placeholder={field}
-              type={field.includes("email") ? "email" : "text"}
+              type={field.toLowerCase().includes("email") ? "email" : "text"}
             />
           </label>
         ))}

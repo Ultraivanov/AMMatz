@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 import type { LandingImage, LandingVideo } from "./content";
 
@@ -141,29 +144,54 @@ export function PowderProofSlider({
 }: {
   items: ReadonlyArray<{ label: string; image: LandingImage }>;
 }) {
+  const [index, setIndex] = useState(0);
+  const activeItem = items[index];
+  const previous = () => setIndex((current) => (current === 0 ? items.length - 1 : current - 1));
+  const next = () => setIndex((current) => (current === items.length - 1 ? 0 : current + 1));
+
   return (
-    <div className="overflow-x-auto">
-      <div className="flex w-max gap-4 px-4 py-2 md:px-40">
-        {items.map((item) => (
-          <figure className="relative h-[271px] w-[361px] shrink-0 overflow-hidden md:h-[341px] md:w-[455px]" key={item.label}>
-            <ProofImage image={item.image} />
-            <figcaption className="absolute bottom-0 left-0 bg-[#06284f] px-3 py-2 font-mono text-xs text-white md:text-lg">
-              {item.label}
-            </figcaption>
-          </figure>
-        ))}
+    <div>
+      <div className="px-4 py-2 md:px-40">
+        <figure className="relative h-[271px] w-full max-w-[361px] overflow-hidden md:h-[341px] md:max-w-[455px]">
+          <ProofImage image={activeItem.image} />
+          <figcaption className="absolute bottom-0 left-0 bg-[#06284f] px-3 py-2 font-mono text-xs text-white md:text-lg">
+            {activeItem.label}
+          </figcaption>
+        </figure>
       </div>
-      <SliderNav label="Powder proof images" />
+      <SliderNav label={activeItem.label} onNext={next} onPrevious={previous} />
     </div>
   );
 }
 
-export function SliderNav({ label }: { label: string }) {
+export function SliderNav({
+  label,
+  onNext,
+  onPrevious,
+}: {
+  label: string;
+  onNext?: () => void;
+  onPrevious?: () => void;
+}) {
   return (
     <div className="flex items-center gap-2 px-4 py-2 md:px-40">
       <div className="flex w-[155px] items-center justify-between px-4 py-2 text-white/75">
-        <span aria-hidden="true" className="font-mono text-2xl">‹</span>
-        <span aria-hidden="true" className="font-mono text-2xl">›</span>
+        <button
+          aria-label="Previous slide"
+          className="grid size-8 place-items-center font-mono text-2xl hover:text-white"
+          onClick={onPrevious}
+          type="button"
+        >
+          ‹
+        </button>
+        <button
+          aria-label="Next slide"
+          className="grid size-8 place-items-center font-mono text-2xl hover:text-white"
+          onClick={onNext}
+          type="button"
+        >
+          ›
+        </button>
       </div>
       <p className="font-sans text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/70 uppercase md:text-sm">
         {label}
@@ -181,18 +209,35 @@ export function ProductionMedia({
   video: LandingVideo;
   mobileVideo: LandingVideo;
 }) {
-  return (
-    <div className="overflow-x-auto">
-      <div className="flex w-max gap-4 px-4 md:px-40">
-        <figure className="h-[271px] w-[361px] shrink-0 md:h-[630px] md:w-[1120px]">
+  const slides = [
+    {
+      label: "Proprietary atomization equipment",
+      node: (
+        <figure className="h-[271px] w-[calc(100vw-32px)] max-w-[361px] shrink-0 md:h-[630px] md:w-[1120px] md:max-w-none">
           <ProofImage image={equipment} className="object-contain" priority />
         </figure>
-        <figure className="h-[271px] w-[361px] shrink-0 md:h-[630px] md:w-[1120px]">
+      ),
+    },
+    {
+      label: "Argon plasma arc",
+      node: (
+        <figure className="h-[271px] w-[calc(100vw-32px)] max-w-[361px] shrink-0 md:h-[630px] md:w-[1120px] md:max-w-none">
           <BlueprintVideo video={mobileVideo} className="md:hidden" />
           <BlueprintVideo video={video} className="hidden md:block" />
         </figure>
+      ),
+    },
+  ];
+  const [index, setIndex] = useState(0);
+  const previous = () => setIndex((current) => (current === 0 ? slides.length - 1 : current - 1));
+  const next = () => setIndex((current) => (current === slides.length - 1 ? 0 : current + 1));
+
+  return (
+    <div>
+      <div className="px-4 md:px-40">
+        {slides[index].node}
       </div>
-      <SliderNav label="Proprietary atomization equipment" />
+      <SliderNav label={slides[index].label} onNext={next} onPrevious={previous} />
     </div>
   );
 }
@@ -226,43 +271,21 @@ export function ParameterSheet({
 }
 
 export function RecyclingIcon({ type }: { type: string }) {
-  const common = "h-6 w-6 md:h-12 md:w-12";
-
-  if (type === "recycle") {
-    return (
-      <svg aria-hidden="true" className={common} fill="none" viewBox="0 0 24 24">
-        <path d="m7 19-4-4 4-4" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M3 15h7a4 4 0 0 0 4-4v-1" stroke="currentColor" strokeWidth="1.8" />
-        <path d="m17 5 4 4-4 4" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M21 9h-7a4 4 0 0 0-4 4v1" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    );
-  }
-
-  if (type === "workflow") {
-    return (
-      <svg aria-hidden="true" className={common} fill="none" viewBox="0 0 24 24">
-        <rect height="6" rx="1" stroke="currentColor" strokeWidth="1.8" width="6" x="3" y="3" />
-        <rect height="6" rx="1" stroke="currentColor" strokeWidth="1.8" width="6" x="15" y="15" />
-        <path d="M9 6h4a5 5 0 0 1 5 5v4M6 9v4a5 5 0 0 0 5 5h4" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    );
-  }
-
-  if (type === "return") {
-    return (
-      <svg aria-hidden="true" className={common} fill="none" viewBox="0 0 24 24">
-        <path d="M20 7v10H8" stroke="currentColor" strokeWidth="1.8" />
-        <path d="m11 13-4 4 4 4" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M4 7h10" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    );
-  }
+  const iconMap: Record<string, string> = {
+    input: "/assets/icon-input-streams.svg",
+    recycle: "/assets/icon-material-recovery.svg",
+    workflow: "/assets/icon-controlled-route.svg",
+    return: "/assets/icon-am-return.svg",
+  };
 
   return (
-    <svg aria-hidden="true" className={common} fill="none" viewBox="0 0 24 24">
-      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M7 4v16M17 4v16" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
+    <Image
+      alt=""
+      aria-hidden="true"
+      className="h-6 w-6 md:h-12 md:w-12"
+      height={48}
+      src={iconMap[type] ?? iconMap.input}
+      width={48}
+    />
   );
 }
