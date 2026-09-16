@@ -16,8 +16,8 @@ export const brand = {
   name: "AMMatz Group",
   descriptor: "Advanced Materials & Manufacturing",
   email: "office@ammatz.com",
-  phone: "+972 587 804 533",
-  phoneHref: "+972587804533",
+  phone: "+972 58-452-0920",
+  phoneHref: "+972584520920",
 };
 
 export const navItems = [
