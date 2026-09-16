@@ -207,7 +207,7 @@ function Footer() {
       <p className="max-w-[1120px] text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/75 uppercase md:text-lg md:normal-case md:tracking-normal">
         Advanced metal powder production for additive manufacturing
       </p>
-      <div className="text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/40 md:text-lg md:tracking-normal">
+      <div className="grid gap-1 text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/40 md:gap-2 md:text-lg md:tracking-normal">
         <a className={contactLinkClass} href={`mailto:${brand.email}`}>
           {brand.email}
         </a>
