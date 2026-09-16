@@ -196,6 +196,9 @@ function RfqSection() {
 }
 
 function Footer() {
+  const contactLinkClass =
+    "block text-[10px] leading-[1.2] font-medium tracking-[1.5px] underline underline-offset-2 hover:text-white md:text-lg md:tracking-normal";
+
   return (
     <footer className="grid gap-4 border-t border-white/10 bg-[#041e3b] px-4 py-8 md:px-40 md:py-16">
       <h2 className="font-mono text-xl leading-[1.2] font-bold text-white md:text-2xl md:font-medium">
@@ -205,10 +208,10 @@ function Footer() {
         Advanced metal powder production for additive manufacturing
       </p>
       <div className="text-[10px] leading-[1.2] font-medium tracking-[1.5px] text-white/40 md:text-lg md:tracking-normal">
-        <a className="block underline underline-offset-2 hover:text-white" href={`mailto:${brand.email}`}>
+        <a className={contactLinkClass} href={`mailto:${brand.email}`}>
           {brand.email}
         </a>
-        <a className="block underline underline-offset-2 hover:text-white" href={`tel:${brand.phoneHref}`}>
+        <a className={contactLinkClass} href={`tel:${brand.phoneHref}`}>
           {brand.phone}
         </a>
         <p>Israel · AM powders</p>
