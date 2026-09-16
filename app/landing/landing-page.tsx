@@ -208,6 +208,9 @@ function Footer() {
         <a className="block underline underline-offset-2 hover:text-white" href={`mailto:${brand.email}`}>
           {brand.email}
         </a>
+        <a className="block underline underline-offset-2 hover:text-white" href={`tel:${brand.phoneHref}`}>
+          {brand.phone}
+        </a>
         <p>Israel · AM powders</p>
       </div>
     </footer>
